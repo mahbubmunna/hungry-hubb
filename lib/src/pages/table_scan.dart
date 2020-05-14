@@ -2,6 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
+
 
 class TableScan extends StatefulWidget {
   @override
@@ -24,7 +26,7 @@ class _TableScanState extends State<TableScan> {
             shape: StadiumBorder(),
             onPressed: () async{
               _startScan();
-              Navigator.of(context).pushNamedAndRemoveUntil('/Pages', ModalRoute.withName('/Splash'));
+              Navigator.of(context).pushNamedAndRemoveUntil('/Pages', ModalRoute.withName('/Splash'), arguments: RouteArgument(param: 0));
             },
             child: Text('Scan Table', textScaleFactor: 1.5, ),
           ),

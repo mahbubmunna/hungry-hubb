@@ -4,6 +4,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:food_delivery_app/config/app_config.dart' as config;
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/walkthrough_controller.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 class Walkthrough extends StatelessWidget {
@@ -22,7 +23,7 @@ class Walkthrough extends StatelessWidget {
       leading: MaterialButton(
         padding: EdgeInsets.all(0),
         onPressed: () {
-          Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
+          Navigator.of(context).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 0));
         },
         child: Padding(
           padding: const EdgeInsets.only(left: 20),

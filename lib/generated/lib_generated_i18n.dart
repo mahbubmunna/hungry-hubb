@@ -32,11 +32,14 @@ class S implements WidgetsLocalizations {
   String get application_preferences => "Application Preferences";
   String get cancel => "Cancel";
   String get order => "Order";
+  String get call_staff => "Call Staff";
+  String get momos_cafe => 'Momo\'s Cafe & Resturant';
+  String get slogan => 'Your money , Our service';
   String get carts_refreshed_successfuly => "Carts refreshed successfully";
   String get cash_on_delivery => "Cash on delivery";
   String get category => "Category";
   String get category_refreshed_successfuly => "Category refreshed successfully";
-  String get checkout => "Checkout";
+  String get checkout => "Place Order";
   String get close => "Close";
   String get confirm_payment => "Confirm Payment";
   String get confirmation => "Confirmation";
@@ -46,6 +49,8 @@ class S implements WidgetsLocalizations {
   String get description => "Description";
   String get discover__explorer => "Discover & Explorer";
   String get dont_have_any_item_in_the_notification_list => "D'ont have any item in the notification list";
+  String get dont_have_any_item_in_the_pay_list => "D'ont have any item to pay";
+  String get dont_have_any_item_in_the_history_list => "D'ont have any item in the history list";
   String get dont_have_any_item_in_your_cart => "D'ont have any item in your cart";
   String get double_click_on_the_food_to_add_it_to_the => "Double click on the food to add it to the cart";
   String get edit => "Edit";
@@ -88,7 +93,6 @@ class S implements WidgetsLocalizations {
   String get maps_explorer => "Maps Explorer";
   String get menu => "Menu";
   String get most_popular => "Most Popular";
-  String get momos_cafe => "Momo's Cafe";
   String get my_orders => "My Orders";
   String get new_address_added_successfully => "New Address added successfully";
   String get not_a_valid_address => "Not a valid address";
@@ -100,6 +104,8 @@ class S implements WidgetsLocalizations {
   String get not_a_valid_number => "Not a valid number";
   String get not_a_valid_phone => "Not a valid phone";
   String get notifications => "Notifications";
+  String get history => "History";
+  String get pay => "Pay";
   String get notifications_refreshed_successfuly => "Notifications refreshed successfully";
   String get nutrition => "Nutrition";
   String get or_checkout_with => "Or Checkout With";

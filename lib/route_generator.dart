@@ -21,6 +21,8 @@ import 'package:food_delivery_app/src/pages/paypal_payment.dart';
 import 'package:food_delivery_app/src/pages/settings.dart';
 import 'package:food_delivery_app/src/pages/signup.dart';
 import 'package:food_delivery_app/src/pages/splash_screen.dart';
+import 'package:food_delivery_app/src/pages/order_confirmation.dart';
+import 'package:food_delivery_app/src/pages/staff_confirmation.dart';
 import 'package:food_delivery_app/src/pages/table_scan.dart';
 import 'package:food_delivery_app/src/pages/tracking.dart';
 import 'package:food_delivery_app/src/pages/walkthrough.dart';
@@ -48,10 +50,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LoginWidget());
       case '/CallStaff':
         return MaterialPageRoute(builder: (_) => CallStaff());
+      case '/StaffConfirmation':
+        return MaterialPageRoute(builder: (_) => StaffConfirmation());
       case '/ForgetPassword':
         return MaterialPageRoute(builder: (_) => ForgetPasswordWidget());
       case '/Pages':
-        return MaterialPageRoute(builder: (_) => PagesTestWidget(currentTab: 0));
+        return MaterialPageRoute(builder: (_) => PagesTestWidget(routeArgument: args as RouteArgument));
       case '/Details':
         return MaterialPageRoute(builder: (_) => DetailsWidget(routeArgument: args as RouteArgument));
       case '/Map':
@@ -64,6 +68,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => CategoryWidget(routeArgument: args as RouteArgument));
       case '/Cart':
         return MaterialPageRoute(builder: (_) => CartWidget(routeArgument: args as RouteArgument));
+      case '/SuccessfulOrder':
+        return MaterialPageRoute(builder: (_) => SuccessfulOrder());
       case '/Tracking':
         return MaterialPageRoute(builder: (_) => TrackingWidget(routeArgument: args as RouteArgument));
       case '/PaymentMethod':
@@ -90,7 +96,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SettingsWidget());
       default:
         // If there is no such named route in the switch statement, e.g. /third
-        return MaterialPageRoute(builder: (_) => PagesTestWidget(currentTab: 0));
+        return MaterialPageRoute(builder: (_) => PagesTestWidget(routeArgument: args as RouteArgument));
     }
   }
 

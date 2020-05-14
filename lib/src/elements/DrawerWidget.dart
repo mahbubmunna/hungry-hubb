@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/profile_controller.dart';
 import 'package:food_delivery_app/src/elements/CircularLoadingWidget.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:food_delivery_app/src/repository/settings_repository.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -36,22 +37,22 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
 //              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(35)),
                     ),
                     accountName: Text(
-                      _con.user.name,
+                      S.of(context).momos_cafe,
                       style: Theme.of(context).textTheme.title,
                     ),
                     accountEmail: Text(
-                      _con.user.email,
+                      S.of(context).slogan,
                       style: Theme.of(context).textTheme.caption,
                     ),
                     currentAccountPicture: CircleAvatar(
                       backgroundColor: Theme.of(context).accentColor,
-                      backgroundImage: NetworkImage(_con.user.image.thumb),
+                      backgroundImage: AssetImage('assets/img/japan_resturant.png'),
                     ),
                   ),
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/Pages', arguments: 2);
+                    Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 0));
                   },
                   leading: Icon(
                     Icons.home,
@@ -64,40 +65,66 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/Pages', arguments: 0);
-                  },
-                  leading: Icon(
-                    Icons.notifications,
-                    color: Theme.of(context).focusColor.withOpacity(1),
-                  ),
-                  title: Text(
-                    S.of(context).notifications,
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    Navigator.of(context).pushNamed('/Pages', arguments: 3);
-                  },
-                  leading: Icon(
-                    Icons.fastfood,
-                    color: Theme.of(context).focusColor.withOpacity(1),
-                  ),
-                  title: Text(
-                    S.of(context).my_orders,
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    Navigator.of(context).pushNamed('/Pages', arguments: 4);
+                    Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 1));
                   },
                   leading: Icon(
                     Icons.favorite,
                     color: Theme.of(context).focusColor.withOpacity(1),
                   ),
                   title: Text(
-                    S.of(context).top_foods,
+                    S.of(context).top,
+                    style: Theme.of(context).textTheme.subhead,
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 2));
+                  },
+                  leading: Icon(
+                    Icons.phonelink_ring,
+                    color: Theme.of(context).focusColor.withOpacity(1),
+                  ),
+                  title: Text(
+                    S.of(context).call_staff,
+                    style: Theme.of(context).textTheme.subhead,
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 3));
+                  },
+                  leading: Icon(
+                    Icons.border_color,
+                    color: Theme.of(context).focusColor.withOpacity(1),
+                  ),
+                  title: Text(
+                    S.of(context).order,
+                    style: Theme.of(context).textTheme.subhead,
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 4));
+                  },
+                  leading: Icon(
+                    Icons.history,
+                    color: Theme.of(context).focusColor.withOpacity(1),
+                  ),
+                  title: Text(
+                    S.of(context).history,
+                    style: Theme.of(context).textTheme.subhead,
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 5));
+                  },
+                  leading: Icon(
+                    Icons.account_balance_wallet,
+                    color: Theme.of(context).focusColor.withOpacity(1),
+                  ),
+                  title: Text(
+                    S.of(context).pay,
                     style: Theme.of(context).textTheme.subhead,
                   ),
                 ),
@@ -125,32 +152,32 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
                     style: Theme.of(context).textTheme.subhead,
                   ),
                 ),
-                ListTile(
-                  onTap: () {
-                    Navigator.of(context).pushNamed('/Settings');
-                  },
-                  leading: Icon(
-                    Icons.settings,
-                    color: Theme.of(context).focusColor.withOpacity(1),
-                  ),
-                  title: Text(
-                    S.of(context).settings,
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    Navigator.of(context).pushNamed('/Languages');
-                  },
-                  leading: Icon(
-                    Icons.translate,
-                    color: Theme.of(context).focusColor.withOpacity(1),
-                  ),
-                  title: Text(
-                    S.of(context).languages,
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                ),
+//                ListTile(
+//                  onTap: () {
+//                    Navigator.of(context).pushNamed('/Settings');
+//                  },
+//                  leading: Icon(
+//                    Icons.settings,
+//                    color: Theme.of(context).focusColor.withOpacity(1),
+//                  ),
+//                  title: Text(
+//                    S.of(context).settings,
+//                    style: Theme.of(context).textTheme.subhead,
+//                  ),
+//                ),
+//                ListTile(
+//                  onTap: () {
+//                    Navigator.of(context).pushNamed('/Languages');
+//                  },
+//                  leading: Icon(
+//                    Icons.translate,
+//                    color: Theme.of(context).focusColor.withOpacity(1),
+//                  ),
+//                  title: Text(
+//                    S.of(context).languages,
+//                    style: Theme.of(context).textTheme.subhead,
+//                  ),
+//                ),
                 ListTile(
                   onTap: () {
                     if (Theme.of(context).brightness == Brightness.dark) {
@@ -172,21 +199,21 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
                     style: Theme.of(context).textTheme.subhead,
                   ),
                 ),
-                ListTile(
-                  onTap: () {
-                    logout().then((value) {
-                      Navigator.of(context).pushNamedAndRemoveUntil('/Login', (Route<dynamic> route) => false);
-                    });
-                  },
-                  leading: Icon(
-                    Icons.exit_to_app,
-                    color: Theme.of(context).focusColor.withOpacity(1),
-                  ),
-                  title: Text(
-                    S.of(context).log_out,
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                ),
+//                ListTile(
+//                  onTap: () {
+//                    logout().then((value) {
+//                      Navigator.of(context).pushNamedAndRemoveUntil('/Login', (Route<dynamic> route) => false);
+//                    });
+//                  },
+//                  leading: Icon(
+//                    Icons.exit_to_app,
+//                    color: Theme.of(context).focusColor.withOpacity(1),
+//                  ),
+//                  title: Text(
+//                    S.of(context).log_out,
+//                    style: Theme.of(context).textTheme.subhead,
+//                  ),
+//                ),
                 ListTile(
                   dense: true,
                   title: Text(

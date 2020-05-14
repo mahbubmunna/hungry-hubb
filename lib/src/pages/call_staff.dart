@@ -52,11 +52,7 @@ class _CallStaffState extends State<CallStaff> {
                 shape: StadiumBorder(),
                 child: Text('Call Staff', textScaleFactor: 2,),
                 onPressed: (){
-                  AwesomeDialog(
-                    context: context,
-                    body: Text('Some one is coming for you'),
-                    dialogType: DialogType.SUCCES,
-                  ).show();
+                  Navigator.of(context).pushNamed('/StaffConfirmation');
                 },
               )
             ),

@@ -3,7 +3,6 @@ import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/notification_controller.dart';
 import 'package:food_delivery_app/src/elements/EmptyNotificationsWidget.dart';
 import 'package:food_delivery_app/src/elements/NotificationItemWidget.dart';
-import 'package:food_delivery_app/src/elements/ShoppingCartButtonWidget.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 class NotificationsWidget extends StatefulWidget {
@@ -33,7 +32,7 @@ class _NotificationsWidgetState extends StateMVC<NotificationsWidget> {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            S.of(context).notifications,
+            S.of(context).history,
             style: Theme.of(context)
                 .textTheme
                 .title

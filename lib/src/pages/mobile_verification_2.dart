@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/config/app_config.dart' as config;
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/elements/BlockButtonWidget.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
 
 class MobileVerification2 extends StatelessWidget {
   @override
@@ -57,7 +58,7 @@ class MobileVerification2 extends StatelessWidget {
             SizedBox(height: 80),
             new BlockButtonWidget(
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
+                Navigator.of(context).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 0));
               },
               color: Theme.of(context).accentColor,
               text: Text(S.of(context).verify.toUpperCase(),

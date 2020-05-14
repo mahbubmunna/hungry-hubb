@@ -50,7 +50,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
         centerTitle: true,
         title: Text(
           //settingsRepo.setting?.appName ?? S.of(context).home,
-          'Momo\'s Cafe & Resturant',
+          S.of(context).momos_cafe,
           style: Theme.of(context)
               .textTheme
               .title
@@ -61,7 +61,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
           child: Column(
             children: <Widget>[
               Text(
-                'Your money , Our service',
+                S.of(context).slogan,
                 textScaleFactor: 1.5,
               ),
               SizedBox(
@@ -204,28 +204,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
               FoodsCarouselWidget(
                   foodsList: _con.trendingFoods, heroTag: 'dinner_carousel'),
 
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ListTile(
-                  dense: true,
-                  contentPadding: EdgeInsets.symmetric(vertical: 0),
-                  leading: Icon(
-                    Icons.trending_up,
-                    color: Theme.of(context).hintColor,
-                  ),
-                  title: Text(
-                    S.of(context).most_popular,
-                    style: Theme.of(context).textTheme.display1,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: GridWidget(
-                  restaurantsList: _con.topRestaurants,
-                  heroTag: 'home_restaurants',
-                ),
-              ),
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ListTile(

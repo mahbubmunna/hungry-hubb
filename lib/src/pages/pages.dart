@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/src/elements/DrawerWidget.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:food_delivery_app/src/pages/call_staff.dart';
 import 'package:food_delivery_app/src/pages/cart.dart';
 import 'package:food_delivery_app/src/pages/favorites.dart';
+import 'package:food_delivery_app/src/pages/history.dart';
 import 'package:food_delivery_app/src/pages/home.dart';
-import 'package:food_delivery_app/src/pages/notifications.dart';
-import 'package:food_delivery_app/src/pages/orders.dart';
-import 'package:food_delivery_app/src/pages/profile.dart';
+import 'package:food_delivery_app/src/pages/pay.dart';
+
 
 // ignore: must_be_immutable
 class PagesTestWidget extends StatefulWidget {
   int currentTab;
+  RouteArgument routeArgument;
   Widget currentPage = HomeWidget();
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   PagesTestWidget({
     Key key,
     this.currentTab,
+    this.routeArgument
   }) {
-    currentTab = currentTab != null ? currentTab : 2;
+    currentTab = routeArgument.param != null ? routeArgument.param as int : 0;
   }
 
   @override
@@ -30,6 +33,7 @@ class PagesTestWidget extends StatefulWidget {
 class _PagesTestWidgetState extends State<PagesTestWidget> {
   initState() {
     super.initState();
+    print(widget.currentTab);
     _selectTab(widget.currentTab);
   }
 
@@ -56,10 +60,10 @@ class _PagesTestWidgetState extends State<PagesTestWidget> {
           widget.currentPage = CartWidget();
           break;
         case 4:
-          widget.currentPage = NotificationsWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = HistoryWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
         case 5:
-          widget.currentPage = NotificationsWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = PayWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
       }
     });

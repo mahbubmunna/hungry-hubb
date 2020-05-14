@@ -1,9 +1,10 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/home/munna/flutter
-FLUTTER_APPLICATION_PATH=/home/munna/mobile_projects/smartfoodflutter
+FLUTTER_ROOT=/home/mahbub/flutter
+FLUTTER_APPLICATION_PATH=/home/mahbub/mobile_projects/momoscafe
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
-FLUTTER_FRAMEWORK_DIR=/home/munna/flutter/bin/cache/artifacts/engine/ios
+OTHER_LDFLAGS=$(inherited) -framework Flutter
+FLUTTER_FRAMEWORK_DIR=/home/mahbub/flutter/bin/cache/artifacts/engine/ios
 FLUTTER_BUILD_NAME=1.7.0
 FLUTTER_BUILD_NUMBER=1.7.0

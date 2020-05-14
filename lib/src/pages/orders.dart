@@ -4,7 +4,6 @@ import 'package:food_delivery_app/src/controllers/order_controller.dart';
 import 'package:food_delivery_app/src/elements/CircularLoadingWidget.dart';
 import 'package:food_delivery_app/src/elements/OrderItemWidget.dart';
 import 'package:food_delivery_app/src/elements/SearchBarWidget.dart';
-import 'package:food_delivery_app/src/elements/ShoppingCartButtonWidget.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 class OrdersWidget extends StatefulWidget {

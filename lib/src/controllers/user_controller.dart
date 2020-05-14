@@ -1,6 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:food_delivery_app/src/models/user.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart' as repository;
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -31,7 +32,7 @@ class UserController extends ControllerMVC {
           scaffoldKey.currentState.showSnackBar(SnackBar(
             content: Text(S.current.welcome + value.name),
           ));
-          Navigator.of(scaffoldKey.currentContext).pushReplacementNamed('/Pages', arguments: 2);
+          Navigator.of(scaffoldKey.currentContext).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 0));
         } else {
           scaffoldKey.currentState.showSnackBar(SnackBar(
             content: Text(S.current.wrong_email_or_password),
@@ -49,7 +50,7 @@ class UserController extends ControllerMVC {
           scaffoldKey.currentState.showSnackBar(SnackBar(
             content: Text(S.current.welcome + value.name),
           ));
-          Navigator.of(scaffoldKey.currentContext).pushReplacementNamed('/Pages', arguments: 2);
+          Navigator.of(scaffoldKey.currentContext).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 0));
         } else {
           scaffoldKey.currentState.showSnackBar(SnackBar(
             content: Text(S.current.wrong_email_or_password),

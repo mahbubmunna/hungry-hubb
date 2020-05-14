@@ -43,7 +43,7 @@ class _CartWidgetState extends StateMVC<CartWidget> {
                 Navigator.of(context)
                     .pushReplacementNamed('/Food', arguments: RouteArgument(id: widget.routeArgument.id));
               } else {
-                Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
+                Navigator.of(context).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 0));
               }
             },
             icon: Icon(Icons.arrow_back),
@@ -181,9 +181,10 @@ class _CartWidgetState extends StateMVC<CartWidget> {
 //                                        Navigator.of(context).pushNamed('/PaymentMethod',
 //                                            arguments:
 //                                                new RouteArgument(param: [_con.carts, _con.total, setting.defaultTax]));
-                                        Navigator.of(context).pushNamed('/DeliveryAddresses',
-                                            arguments:
-                                                new RouteArgument(param: [_con.carts, _con.total, setting.defaultTax]));
+//                                        Navigator.of(context).pushNamed('/DeliveryAddresses',
+//                                            arguments:
+//                                                new RouteArgument(param: [_con.carts, _con.total, setting.defaultTax]));
+                                          Navigator.of(context).pushNamed('/SuccessfulOrder');
                                       },
                                       padding: EdgeInsets.symmetric(vertical: 14),
                                       color: Theme.of(context).accentColor,

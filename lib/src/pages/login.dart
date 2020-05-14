@@ -3,6 +3,7 @@ import 'package:food_delivery_app/config/app_config.dart' as config;
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/user_controller.dart';
 import 'package:food_delivery_app/src/elements/BlockButtonWidget.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart' as userRepo;
 import 'package:mvc_pattern/mvc_pattern.dart';
 
@@ -21,7 +22,7 @@ class _LoginWidgetState extends StateMVC<LoginWidget> {
   void initState() {
     super.initState();
     if (userRepo.currentUser?.apiToken != null) {
-      Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
+      Navigator.of(context).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 2));
     }
   }
 
