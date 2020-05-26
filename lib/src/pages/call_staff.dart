@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 
 class CallStaff extends StatefulWidget {
   final GlobalKey<ScaffoldState> parentScaffoldKey;
@@ -21,12 +22,12 @@ class _CallStaffState extends State<CallStaff> {
         centerTitle: true,
         title: Text(
           //settingsRepo.setting?.appName ?? S.of(context).home,
-          'Momo\'s Cafe & Resturant',
+          S.of(context).momos_cafe,
           style: Theme.of(context).textTheme.title.merge(TextStyle(letterSpacing: 1.3)),
         ),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(20),
-          child: Text('Your money , Our service', textScaleFactor: 1.5,),
+          child: Text(S.of(context).slogan, textScaleFactor: 1.5,),
         ),
         actions: <Widget>[
           IconButton(
@@ -38,7 +39,7 @@ class _CallStaffState extends State<CallStaff> {
       body: Stack(
         children: <Widget>[
           Center(
-            child: Text(('Please Press the button below to call stuff'), textScaleFactor: 2, textAlign: TextAlign.center,),
+            child: Text(S.of(context).call_staff_detail, textScaleFactor: 2, textAlign: TextAlign.center,),
           ),
           Padding(
             padding: EdgeInsets.only(bottom: 50),
@@ -50,7 +51,7 @@ class _CallStaffState extends State<CallStaff> {
                 textColor: Colors.white,
                 color: Theme.of(context).accentColor,
                 shape: StadiumBorder(),
-                child: Text('Call Staff', textScaleFactor: 2,),
+                child: Text(S.of(context).call_staff, textScaleFactor: 2,),
                 onPressed: (){
                   Navigator.of(context).pushNamed('/StaffConfirmation');
                 },

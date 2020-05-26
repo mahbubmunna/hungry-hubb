@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/elements/DrawerWidget.dart';
 import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:food_delivery_app/src/pages/call_staff.dart';
@@ -94,7 +95,7 @@ class _PagesTestWidgetState extends State<PagesTestWidget> {
           // this will be set when a new tab is tapped
           items: [
             BottomNavigationBarItem(
-                title: Text('Home'),
+                title: Text(S.of(context).home),
                 icon: Icon(Icons.home)
 //                Container(
 //                  width: 42,
@@ -116,23 +117,23 @@ class _PagesTestWidgetState extends State<PagesTestWidget> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
-              title: Text('Top'),
+              title: Text(S.of(context).top),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.phonelink_ring),
-              title: new Text('Call Staff'),
+              title: new Text(S.of(context).call_staff),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.border_color),
-              title: Text('Order'),
+              title: Text(S.of(context).order),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.history),
-              title: Text('History'),
+              title: Text(S.of(context).history),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
-              title: Text('Pay'),
+              title: Text(S.of(context).pay),
             ),
           ],
         ),

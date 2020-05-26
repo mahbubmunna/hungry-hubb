@@ -5,7 +5,6 @@ import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/controller.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

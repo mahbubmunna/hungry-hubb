@@ -33,6 +33,7 @@ class S implements WidgetsLocalizations {
   String get cancel => "Cancel";
   String get order => "Order";
   String get call_staff => "Call Staff";
+  String get call_staff_detail => 'Please Press the button below to call stuff';
   String get momos_cafe => 'Momo\'s Cafe & Resturant';
   String get slogan => 'Your money , Our service';
   String get carts_refreshed_successfuly => "Carts refreshed successfully";
@@ -92,6 +93,10 @@ class S implements WidgetsLocalizations {
   String get longpress_on_the_food_to_add_suplements => "Longpress on the food to add suplements";
   String get maps_explorer => "Maps Explorer";
   String get menu => "Menu";
+  String get food => "Food";
+  String get drink => "Drink";
+  String get desert => "Desert";
+  String get recommended => "Recommended";
   String get most_popular => "Most Popular";
   String get my_orders => "My Orders";
   String get new_address_added_successfully => "New Address added successfully";
@@ -481,6 +486,506 @@ class $ar extends S {
   @override
   String the_food_was_removed_from_your_cart(String foodName) => "تمت إزالة $foodName من سلة التسوق الخاصة بك";
 }
+
+class $ja extends S {
+  const $ja();
+
+  @override
+  TextDirection get textDirection => TextDirection.ltr;
+
+  @override
+  String get about => "約";
+
+  @override
+  String get add => "加算";
+
+  @override
+  String get add_delivery_address => "配送先住所を追加";
+
+  @override
+  String get add_to_cart => "カートに追加";
+
+  @override
+  String get address => "住所";
+
+  @override
+  String get food => "食物";
+
+
+  @override
+  String get drink => "ドリンク";
+
+
+  @override
+  String get desert => "砂漠";
+
+
+  @override
+  String get recommended => "お勧め";
+
+  @override
+  String get addresses_refreshed_successfuly => "アドレスが正常に更新されました";
+
+  @override
+  String get all_menu => "すべてのメニュー";
+
+  @override
+  String get app_language => "アプリの言語";
+
+  @override
+  String get app_settings => "アプリの設定";
+
+  @override
+  String get application_preferences => "アプリケーション設定";
+
+  @override
+  String get cancel => "キャンセル";
+
+  @override
+  String get order => "注文";
+
+  @override
+  String get call_staff => "コールスタッフ";
+
+
+  @override
+  String get call_staff_detail => "下のボタンを押して電話してください";
+
+  @override
+  String get momos_cafe => 'モモズカフェ＆レストラン';
+
+  @override
+  String get slogan => 'あなたのお金、私たちのサービス';
+
+  @override
+  String get carts_refreshed_successfuly => "カートが正常に更新されました";
+
+  @override
+  String get cash_on_delivery => "代金引換";
+
+  @override
+  String get category => "カテゴリー";
+
+  @override
+  String get category_refreshed_successfuly => "カテゴリが正常に更新されました";
+
+  @override
+  String get checkout => "注文する";
+
+  @override
+  String get close => "閉じる";
+
+  @override
+  String get confirm_payment => "支払いを確認";
+
+  @override
+  String get confirmation => "確認";
+
+  @override
+  String get dark_mode => "ダークモード";
+
+  @override
+  String get default_credit_card => "デフォルトのクレジットカード";
+
+  @override
+  String get delivery_addresses => "配送先住所";
+
+  @override
+  String get description => "説明";
+
+  @override
+  String get discover__explorer => "発見と探検";
+
+  @override
+  String get dont_have_any_item_in_the_notification_list => "通知リストにアイテムがありません";
+
+  @override
+  String get dont_have_any_item_in_the_pay_list => "支払うアイテムはありません";
+
+  @override
+  String get dont_have_any_item_in_the_history_list => "履歴リストにアイテムがありません";
+
+  @override
+  String get dont_have_any_item_in_your_cart => "カートに商品はありません";
+
+  @override
+  String get double_click_on_the_food_to_add_it_to_the =>
+      "食品をダブルクリックしてカートに追加します";
+
+  @override
+  String get edit => "編集する";
+
+  @override
+  String get email => "Eメール";
+
+  @override
+  String get email_address => "電子メールアドレス";
+
+  @override
+  String get email_to_reset_password => "パスワードをリセットするメール";
+
+  @override
+  String get english => "英語";
+
+  @override
+  String get error_verify_email_settings => "エラー！メール設定を確認する";
+
+  @override
+  String get extras => "エクストラ";
+
+  @override
+  String get faq => "よくある質問";
+
+  @override
+  String get top_foods => "トップフーズ";
+
+  @override
+  String get top => "上";
+
+  @override
+  String get featured_foods => "注目の食品";
+
+  @override
+  String get food_categories => "食品カテゴリー";
+
+  @override
+  String get full_address => "完全な住所";
+
+  @override
+  String get full_name => "フルネーム";
+
+  @override
+  String get g => "g";
+
+  @override
+  String get help__support => "ヘルプサポート";
+
+  @override
+  String get help_support => "ヘルプサポート";
+
+  @override
+  String get help_supports => "ヘルプサポート";
+
+  @override
+  String get hint_full_address => "12 ストリート, シティ 21663, 国";
+
+  @override
+  String get home => "家";
+
+  @override
+  String get home_address => "自宅住所";
+
+  @override
+  String get i_dont_have_an_account => "アカウントを持っていない?";
+
+  @override
+  String get i_forgot_password => "パスワードを忘れました ?";
+
+  @override
+  String get i_have_account_back_to_login => "私はアカウントを持っています? ログインに戻る";
+
+  @override
+  String get i_remember_my_password_return_to_login => "パスワードを覚えている, ログインに戻る";
+
+  @override
+  String get information => "情報";
+
+  @override
+  String get ingredients => "材料";
+
+  @override
+  String get john_doe => "ジョン・ドウ";
+
+  @override
+  String get keep_your_old_meals_of_this_restaurant => "このレストランの古い食事を守ります";
+
+  @override
+  String get languages => "言語";
+
+  @override
+  String get lets_start_with_login => "ログインから始めましょう！";
+
+  @override
+  String get lets_start_with_register => "登録から始めましょう！";
+
+  @override
+  String get light_mode => "ライトモード";
+
+  @override
+  String get log_out => "ログアウト";
+
+  @override
+  String get login => "ログインする";
+
+  @override
+  String get long_press_to_edit_item_swipe_item_to_delete_it =>
+      "長押ししてアイテムを編集, アイテムをスワイプして削除します";
+
+  @override
+  String get longpress_on_the_food_to_add_suplements => "食品を長押ししてサプリメントを追加します";
+
+  @override
+  String get maps_explorer => "マップエクスプローラー";
+
+  @override
+  String get menu => "メニュー";
+
+  @override
+  String get most_popular => "最も人気のある";
+
+  @override
+  String get my_orders => "私の注文";
+
+  @override
+  String get new_address_added_successfully => "新しい住所が追加されました";
+
+  @override
+  String get not_a_valid_address => "有効な住所ではありません";
+
+  @override
+  String get not_a_valid_biography => "有効な伝記ではありません";
+
+  @override
+  String get not_a_valid_cvc => "有効なCVCではありません";
+
+  @override
+  String get not_a_valid_date => "有効な日付ではありません";
+
+  @override
+  String get not_a_valid_email => "有効なメールではありません";
+
+  @override
+  String get not_a_valid_full_name => "有効なフルネームではありません";
+
+  @override
+  String get not_a_valid_number => "有効な番号ではありません";
+
+  @override
+  String get not_a_valid_phone => "有効な電話番号ではありません";
+
+  @override
+  String get notifications => "お知らせ";
+
+  @override
+  String get history => "歴史";
+
+  @override
+  String get pay => "支払う";
+
+  @override
+  String get notifications_refreshed_successfuly => "通知が正常に更新されました";
+
+  @override
+  String get nutrition => "栄養";
+
+  @override
+  String get or_checkout_with => "またはチェックアウト";
+
+  @override
+  String get order_id => "注文ID";
+
+  @override
+  String get order_refreshed_successfuly => "注文が正常に更新されました";
+
+  @override
+  String get ordered_by_nearby_first => "近くで最初に注文";
+
+  @override
+  String get orders_refreshed_successfuly => "注文が正常に更新されました";
+
+  @override
+  String get password => "パスワード";
+
+  @override
+  String get payment_mode => "支払いモード";
+
+  @override
+  String get payment_options => "支払いオプション";
+
+  @override
+  String get payment_settings => "支払い設定";
+
+  @override
+  String get payment_settings_updated_successfully => "支払い設定が正常に更新されました";
+
+  @override
+  String get payments_settings => "支払い設定";
+
+  @override
+  String get paypal_payment => "PayPal支払い";
+
+  @override
+  String get phone => "電話";
+
+  @override
+  String get profile => "プロフィール";
+
+  @override
+  String get profile_settings => "プロファイル設定";
+
+  @override
+  String get profile_settings_updated_successfully => "プロファイル設定が正常に更新されました";
+
+  @override
+  String get quantity => "量";
+
+  @override
+  String get recent_orders => "最近の注文";
+
+  @override
+  String get recent_reviews => "最近のレビュー";
+
+  @override
+  String get recents_search => "最近の検索";
+
+  @override
+  String get register => "登録";
+
+  @override
+  String get reset => "組み替える";
+
+  @override
+  String get reset_cart => "カートをリセットしますか？";
+
+  @override
+  String get reset_your_cart_and_order_meals_form_this_restaurant =>
+      "カートをリセットする そして このレストランで食事を注文する";
+
+  @override
+  String get restaurant_refreshed_successfuly => "レストランが正常に更新されました";
+
+  @override
+  String get reviews => "レビュー";
+
+  @override
+  String get save => "貯める";
+
+  @override
+  String get search => "探究";
+
+  @override
+  String get search_for_restaurants_or_foods => "レストランや食べ物を検索";
+
+  @override
+  String get select_extras_to_add_them_on_the_food => "食品に追加するエキストラを選択してください";
+
+  @override
+  String get select_your_preferred_languages => "ご希望の言語を選択してください";
+
+  @override
+  String get select_your_preferred_payment_mode => "ご希望のお支払い方法を選択してください";
+
+  @override
+  String get send_password_reset_link => "リンクを送る";
+
+  @override
+  String get settings => "設定";
+
+  @override
+  String get order_cart => "カートを注文する";
+
+  @override
+  String get should_be_a_valid_email => "有効なメールである必要があります";
+
+  @override
+  String get should_be_more_than_3_characters => "3文字以上にする必要があります";
+
+  @override
+  String get should_be_more_than_3_letters => "3文字以上である必要があります";
+
+  @override
+  String get should_be_more_than_6_letters => "6文字以上である必要があります";
+
+  @override
+  String get skip => "スキップ";
+
+  @override
+  String get start_exploring => "探索を開始";
+
+  @override
+  String get submit => "参加する";
+
+  @override
+  String get subtotal => "小計";
+
+  @override
+  String get tax => "税金";
+
+  @override
+  String get the_address_updated_successfully => "住所は正常に更新されました";
+
+  @override
+  String get top_restaurants => "トップレストラン";
+
+  @override
+  String get total => "合計";
+
+  @override
+  String get tracking_order => "追跡注文";
+
+  @override
+  String get tracking_refreshed_successfuly => "追跡が正常に更新されました";
+
+  @override
+  String get trending_this_week => "今週のトレンド";
+
+  @override
+  String get verify => "確認";
+
+  @override
+  String get verify_your_internet_connection => "インターネット接続を確認する";
+
+  @override
+  String get verify_your_quantity_and_click_checkout =>
+      "数量を確認し、チェックアウトをクリックします";
+
+  @override
+  String get version => "稿";
+
+  @override
+  String get welcome => "ようこそ";
+
+  @override
+  String get what_they_say => "彼らが言うことを?";
+
+  @override
+  String get wrong_email_or_password => "メールアドレスまたはパスワードが間違っています";
+
+  @override
+  String get you_can_discover_restaurants =>
+      "あなたの周りのレストランやファーストフードを見つけることができます そして 最高の食事を選んでください, 数分後、準備してお届けします";
+
+  @override
+  String get you_must_add_foods_of_the_same_restaurants_choose_one =>
+      "同じレストランの食べ物を追加する必要があります, レストランを1つだけ選択してください!";
+
+  @override
+  String get your_address => "あなたの住所";
+
+  @override
+  String get your_biography => "あなたの伝記";
+
+  @override
+  String get break_fast => "朝食";
+
+  @override
+  String get lunch => "ランチ";
+
+  @override
+  String get dinner => "晩餐";
+
+  @override
+  String get your_order_has_been_successfully_submitted => "注文は正常に送信されました!";
+
+  @override
+  String get your_reset_link_has_been_sent_to_your_email =>
+      "リセットリンクがメールに送信されました";
+
+  @override
+  String the_food_was_removed_from_your_cart(String foodName) =>
+      "The $foodName カートから削除されました";
+}
+
 
 class $ko extends S {
   const $ko();
@@ -2001,6 +2506,8 @@ class $es extends S {
   String the_food_was_removed_from_your_cart(String foodName) => "El $foodName fue eliminado de su carrito";
 }
 
+
+
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
   const GeneratedLocalizationsDelegate();
 
@@ -2013,6 +2520,7 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
       Locale("en", ""),
       Locale("fr", ""),
       Locale("es", ""),
+      Locale("ja", "")
     ];
   }
 
@@ -2057,6 +2565,9 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
           return SynchronousFuture<S>(S.current);
         case "es":
           S.current = const $es();
+          return SynchronousFuture<S>(S.current);
+        case "ja":
+          S.current = const $ja();
           return SynchronousFuture<S>(S.current);
         default:
         // NO-OP.

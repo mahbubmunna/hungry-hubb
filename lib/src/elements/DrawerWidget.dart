@@ -165,19 +165,19 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
 //                    style: Theme.of(context).textTheme.subhead,
 //                  ),
 //                ),
-//                ListTile(
-//                  onTap: () {
-//                    Navigator.of(context).pushNamed('/Languages');
-//                  },
-//                  leading: Icon(
-//                    Icons.translate,
-//                    color: Theme.of(context).focusColor.withOpacity(1),
-//                  ),
-//                  title: Text(
-//                    S.of(context).languages,
-//                    style: Theme.of(context).textTheme.subhead,
-//                  ),
-//                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/Languages');
+                  },
+                  leading: Icon(
+                    Icons.translate,
+                    color: Theme.of(context).focusColor.withOpacity(1),
+                  ),
+                  title: Text(
+                    S.of(context).languages,
+                    style: Theme.of(context).textTheme.subhead,
+                  ),
+                ),
                 ListTile(
                   onTap: () {
                     if (Theme.of(context).brightness == Brightness.dark) {

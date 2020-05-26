@@ -73,16 +73,16 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
                 indicatorSize: TabBarIndicatorSize.tab,
                 tabs: <Widget>[
                   Tab(
-                    text: 'Food',
+                    text: S.of(context).food,
                   ),
                   Tab(
-                    text: 'Drink',
+                    text: S.of(context).drink,
                   ),
                   Tab(
-                    text: 'Desert',
+                    text: S.of(context).desert,
                   ),
                   Tab(
-                    text: 'Recomandate',
+                    text: S.of(context).recommended,
                   ),
                 ],
               ),
