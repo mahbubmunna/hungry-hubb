@@ -96,7 +96,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SettingsWidget());
       default:
         // If there is no such named route in the switch statement, e.g. /third
-        return MaterialPageRoute(builder: (_) => PagesTestWidget(routeArgument: args as RouteArgument));
+        return MaterialPageRoute(builder: (_) => PagesTestWidget(routeArgument: RouteArgument(param: 0)));
     }
   }
 

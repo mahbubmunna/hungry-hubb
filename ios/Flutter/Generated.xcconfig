@@ -1,10 +1,11 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/home/mahbub/flutter
-FLUTTER_APPLICATION_PATH=/home/mahbub/mobile_projects/momoscafe
-FLUTTER_TARGET=lib/main.dart
+FLUTTER_ROOT=/Users/appdev/flutter
+FLUTTER_APPLICATION_PATH=/Users/appdev/mobile_applications/momoscafe
+FLUTTER_TARGET=/Users/appdev/mobile_applications/momoscafe/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 OTHER_LDFLAGS=$(inherited) -framework Flutter
-FLUTTER_FRAMEWORK_DIR=/home/mahbub/flutter/bin/cache/artifacts/engine/ios
+FLUTTER_FRAMEWORK_DIR=/Users/appdev/flutter/bin/cache/artifacts/engine/ios
 FLUTTER_BUILD_NAME=1.7.0
 FLUTTER_BUILD_NUMBER=1.7.0
+TRACK_WIDGET_CREATION=true
