@@ -27,7 +27,7 @@ class CheckoutController extends ControllerMVC {
 
   CheckoutController() {
     this.scaffoldKey = new GlobalKey<ScaffoldState>();
-    listenForCreditCard();
+   // listenForCreditCard();
   }
 
   void listenForCreditCard() async {

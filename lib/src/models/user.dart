@@ -17,9 +17,9 @@ class User {
   User();
 
   User.fromJSON(Map<String, dynamic> jsonMap) {
-    id = jsonMap['id'].toString();
-    name = jsonMap['name'];
-    email = jsonMap['email'];
+    id = jsonMap['id'].toString() ?? '';
+    name = jsonMap['name'] ?? '';
+    email = jsonMap['email'] ?? '';
     apiToken = jsonMap['api_token'];
     deviceToken = jsonMap['device_token'];
     try {

@@ -111,7 +111,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
                 child: SearchBarWidget(),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: ListTile(
                   dense: true,
                   contentPadding: EdgeInsets.symmetric(vertical: 0),
@@ -149,81 +149,81 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
 //                ),
 //              ),
 //              CardsCarouselWidget(restaurantsList: _con.topRestaurants, heroTag: 'home_top_restaurants'),
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.symmetric(horizontal: 20),
-//                leading: Icon(
-//                  Icons.trending_up,
-//                  color: Theme.of(context).hintColor,
+//              ListTile(
+//                dense: true,
+//                contentPadding: EdgeInsets.symmetric(horizontal: 20),
+////                leading: Icon(
+////                  Icons.trending_up,
+////                  color: Theme.of(context).hintColor,
+////                ),
+//                title: Text(
+//                  S.of(context).break_fast,
+//                  style: Theme.of(context).textTheme.display1,
 //                ),
-                title: Text(
-                  S.of(context).break_fast,
-                  style: Theme.of(context).textTheme.display1,
-                ),
-//                subtitle: Text(
-//                  S.of(context).double_click_on_the_food_to_add_it_to_the,
-//                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
+////                subtitle: Text(
+////                  S.of(context).double_click_on_the_food_to_add_it_to_the,
+////                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
+////                ),
+//              ),
+//              FoodsCarouselWidget(
+//                  foodsList: _con.trendingFoods, heroTag: 'breakfast_carousel'),
+//              ListTile(
+//                dense: true,
+//                contentPadding: EdgeInsets.symmetric(horizontal: 20),
+////                leading: Icon(
+////                  Icons.trending_up,
+////                  color: Theme.of(context).hintColor,
+////                ),
+//                title: Text(
+//                  S.of(context).lunch,
+//                  style: Theme.of(context).textTheme.display1,
 //                ),
-              ),
-              FoodsCarouselWidget(
-                  foodsList: _con.trendingFoods, heroTag: 'breakfast_carousel'),
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.symmetric(horizontal: 20),
-//                leading: Icon(
-//                  Icons.trending_up,
-//                  color: Theme.of(context).hintColor,
+////                subtitle: Text(
+////                  S.of(context).double_click_on_the_food_to_add_it_to_the,
+////                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
+////                ),
+//              ),
+//              FoodsCarouselWidget(
+//                  foodsList: _con.trendingFoods, heroTag: 'lunch_carousel'),
+//              ListTile(
+//                dense: true,
+//                contentPadding: EdgeInsets.symmetric(horizontal: 20),
+////                leading: Icon(
+////                  Icons.trending_up,
+////                  color: Theme.of(context).hintColor,
+////                ),
+//                title: Text(
+//                  S.of(context).dinner,
+//                  style: Theme.of(context).textTheme.display1,
 //                ),
-                title: Text(
-                  S.of(context).lunch,
-                  style: Theme.of(context).textTheme.display1,
-                ),
-//                subtitle: Text(
-//                  S.of(context).double_click_on_the_food_to_add_it_to_the,
-//                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
+////                subtitle: Text(
+////                  S.of(context).double_click_on_the_food_to_add_it_to_the,
+////                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
+////                ),
+//              ),
+//              FoodsCarouselWidget(
+//                  foodsList: _con.trendingFoods, heroTag: 'dinner_carousel'),
+//
+//
+//              Padding(
+//                padding: const EdgeInsets.symmetric(horizontal: 20),
+//                child: ListTile(
+//                  dense: true,
+//                  contentPadding: EdgeInsets.symmetric(vertical: 20),
+//                  leading: Icon(
+//                    Icons.recent_actors,
+//                    color: Theme.of(context).hintColor,
+//                  ),
+//                  title: Text(
+//                    S.of(context).recent_reviews,
+//                    style: Theme.of(context).textTheme.display1,
+//                  ),
 //                ),
-              ),
-              FoodsCarouselWidget(
-                  foodsList: _con.trendingFoods, heroTag: 'lunch_carousel'),
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.symmetric(horizontal: 20),
-//                leading: Icon(
-//                  Icons.trending_up,
-//                  color: Theme.of(context).hintColor,
-//                ),
-                title: Text(
-                  S.of(context).dinner,
-                  style: Theme.of(context).textTheme.display1,
-                ),
-//                subtitle: Text(
-//                  S.of(context).double_click_on_the_food_to_add_it_to_the,
-//                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
-//                ),
-              ),
-              FoodsCarouselWidget(
-                  foodsList: _con.trendingFoods, heroTag: 'dinner_carousel'),
-
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ListTile(
-                  dense: true,
-                  contentPadding: EdgeInsets.symmetric(vertical: 20),
-                  leading: Icon(
-                    Icons.recent_actors,
-                    color: Theme.of(context).hintColor,
-                  ),
-                  title: Text(
-                    S.of(context).recent_reviews,
-                    style: Theme.of(context).textTheme.display1,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ReviewsListWidget(reviewsList: _con.recentReviews),
-              ),
+//              ),
+//              Padding(
+//                padding: const EdgeInsets.symmetric(horizontal: 20),
+//                child: ReviewsListWidget(reviewsList: _con.recentReviews),
+//              ),
             ],
           ),
         ),

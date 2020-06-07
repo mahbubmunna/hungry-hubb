@@ -184,7 +184,7 @@ class _CartWidgetState extends StateMVC<CartWidget> {
 //                                        Navigator.of(context).pushNamed('/DeliveryAddresses',
 //                                            arguments:
 //                                                new RouteArgument(param: [_con.carts, _con.total, setting.defaultTax]));
-                                          Navigator.of(context).pushNamed('/SuccessfulOrder');
+                                          Navigator.of(context).pushNamed('/CashOnDelivery');
                                       },
                                       padding: EdgeInsets.symmetric(vertical: 14),
                                       color: Theme.of(context).accentColor,

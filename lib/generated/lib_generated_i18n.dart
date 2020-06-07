@@ -98,7 +98,7 @@ class S implements WidgetsLocalizations {
   String get desert => "Desert";
   String get recommended => "Recommended";
   String get most_popular => "Most Popular";
-  String get my_orders => "My Orders";
+  String get my_orders => "My Payable";
   String get new_address_added_successfully => "New Address added successfully";
   String get not_a_valid_address => "Not a valid address";
   String get not_a_valid_biography => "Not a valid biography";

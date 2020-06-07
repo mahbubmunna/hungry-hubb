@@ -18,9 +18,12 @@ class TrackingWidget extends StatefulWidget {
 
 class _TrackingWidgetState extends StateMVC<TrackingWidget> {
   TrackingController _con;
+  bool showCalc = true;
+  int dividedPrice;
 
   _TrackingWidgetState() : super(TrackingController()) {
     _con = controller;
+    dividedPrice = 0;
   }
 
   @override
@@ -92,56 +95,84 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
                         ),
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    showCalc ? Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Column(
+
                         children: <Widget>[
-                          Container(
-                            height: 55,
-                            width: 55,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                                color: Theme.of(context).brightness == Brightness.light
-                                    ? Colors.black38
-                                    : Theme.of(context).backgroundColor),
-                            child: Icon(
-                              Icons.place,
-                              color: Theme.of(context).primaryColor,
-                              size: 38,
+                          TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Total Peoples',
+                              hintText: 'number of people you are',
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).accentColor,
+                                )
+                              )
                             ),
+                            keyboardType: TextInputType.number,
                           ),
-                          SizedBox(width: 15),
-                          Flexible(
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      _con.order.deliveryAddress.description,
-                                      overflow: TextOverflow.fade,
-                                      softWrap: false,
-                                      style: Theme.of(context).textTheme.subhead,
-                                    ),
-                                    Text(
-                                      _con.order.deliveryAddress.address,
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                      style: Theme.of(context).textTheme.caption,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                          MaterialButton(
+                            color: Theme.of(context).accentColor,
+                            textColor: Colors.white,
+                            onPressed: () {
+                              setState(() {showCalc = false;});
+                            },
+                            child: Text('Calculate'),
                           )
                         ],
                       ),
-                    ),
+                    ) : Text('Per Person $dividedPrice', textScaleFactor: 2,)
+//                    Container(
+//                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+//                      decoration: BoxDecoration(
+//                        color: Theme.of(context).primaryColor,
+//                      ),
+//                      child: Row(
+//                        mainAxisAlignment: MainAxisAlignment.start,
+//                        children: <Widget>[
+//                          Container(
+//                            height: 55,
+//                            width: 55,
+//                            decoration: BoxDecoration(
+//                                borderRadius: BorderRadius.all(Radius.circular(5)),
+//                                color: Theme.of(context).brightness == Brightness.light
+//                                    ? Colors.black38
+//                                    : Theme.of(context).backgroundColor),
+//                            child: Icon(
+//                              Icons.place,
+//                              color: Theme.of(context).primaryColor,
+//                              size: 38,
+//                            ),
+//                          ),
+//                          SizedBox(width: 15),
+//                          Flexible(
+//                            child: Row(
+//                              crossAxisAlignment: CrossAxisAlignment.center,
+//                              children: <Widget>[
+//                                Column(
+//                                  crossAxisAlignment: CrossAxisAlignment.start,
+//                                  children: <Widget>[
+//                                    Text(
+//                                      _con.order.deliveryAddress.description,
+//                                      overflow: TextOverflow.fade,
+//                                      softWrap: false,
+//                                      style: Theme.of(context).textTheme.subhead,
+//                                    ),
+//                                    Text(
+//                                      _con.order.deliveryAddress.address,
+//                                      overflow: TextOverflow.ellipsis,
+//                                      maxLines: 2,
+//                                      style: Theme.of(context).textTheme.caption,
+//                                    ),
+//                                  ],
+//                                ),
+//                              ],
+//                            ),
+//                          )
+//                        ],
+//                      ),
+//                    ),
                   ],
                 ),
         ));

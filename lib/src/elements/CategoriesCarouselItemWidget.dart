@@ -24,8 +24,8 @@ class CategoriesCarouselItemWidget extends StatelessWidget {
             tag: category.id,
             child: Container(
               margin: EdgeInsets.only(left: this.marginLeft, right: 20),
-              width: 100,
-              height: 100,
+              width: 300,
+              height: 300,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(5)), color: Theme.of(context).accentColor),
               child: Padding(
@@ -43,7 +43,7 @@ class CategoriesCarouselItemWidget extends StatelessWidget {
             child: Text(
               category.name,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.body1,
+              textScaleFactor: 1.5,
             ),
           ),
         ],

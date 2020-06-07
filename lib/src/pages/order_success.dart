@@ -182,7 +182,7 @@ class _OrderSuccessWidgetState extends StateMVC<OrderSuccessWidget> {
                         width: MediaQuery.of(context).size.width - 40,
                         child: FlatButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamed('/Pages', arguments: 3);
+                            Navigator.of(context).pushNamed('/Pages', arguments: RouteArgument(param: 5));
                           },
                           padding: EdgeInsets.symmetric(vertical: 14),
                           color: Theme.of(context).accentColor,

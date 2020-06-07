@@ -29,8 +29,8 @@ class FoodsCarouselItemWidget extends StatelessWidget {
                 tag: heroTag + food.id,
                 child: Container(
                   margin: EdgeInsets.only(left: this.marginLeft, right: 20),
-                  width: 100,
-                  height: 130,
+                  width: 300,
+                  height: 300,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     child: CachedNetworkImage(

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
@@ -42,8 +43,26 @@ class SplashScreenState extends StateMVC<SplashScreen> {
     });
   }
 
+  _initDeviceId(BuildContext context) async {
+    deviceId = await _getId(context);
+  }
+
+  Future<String> _getId(BuildContext context) async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Theme.of(context).platform == TargetPlatform.iOS) {
+      IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+      return iosDeviceInfo.identifierForVendor; // unique ID on iOS
+    } else {
+      AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
+      return androidDeviceInfo.androidId; // unique ID on Android
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _initDeviceId(context);
+    print('device id: $deviceId');
+
     return Scaffold(
       key: _con.scaffoldKey,
       body: Container(
@@ -79,4 +98,8 @@ class SplashScreenState extends StateMVC<SplashScreen> {
       ),
     );
   }
+
+
 }
+
+String deviceId;
