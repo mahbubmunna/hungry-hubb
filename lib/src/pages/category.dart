@@ -68,7 +68,7 @@ class _CategoryWidgetState extends StateMVC<CategoryWidget> {
               ),
               SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 10),
+                padding: const EdgeInsets.only(left: 20, right: 10, top: 24),
                 child: ListTile(
                   contentPadding: EdgeInsets.symmetric(vertical: 0),
                   leading: Icon(
@@ -79,7 +79,8 @@ class _CategoryWidgetState extends StateMVC<CategoryWidget> {
                     _con.category?.name ?? '',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.display1,
+                    style: Theme.of(context).textTheme.headline1,
+                    textScaleFactor: 1.2,
                   ),
 //                  trailing: Row(
 //                    mainAxisSize: MainAxisSize.min,
@@ -113,9 +114,9 @@ class _CategoryWidgetState extends StateMVC<CategoryWidget> {
               _con.foods.isEmpty
                 ? CircularLoadingWidget(height: 150)
                 : Container(
-                height: 500,
+                height: 430,
                 width: 500,
-                padding: EdgeInsets.symmetric(vertical: 30),
+                padding: EdgeInsets.symmetric(vertical: 16),
                 child: FoodsCarouselWidget(
                   foodsList: _con.foods,
                   heroTag: 'safe'+_con.category.id,

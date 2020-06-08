@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/tracking_controller.dart';
@@ -19,16 +21,20 @@ class TrackingWidget extends StatefulWidget {
 class _TrackingWidgetState extends StateMVC<TrackingWidget> {
   TrackingController _con;
   bool showCalc = true;
-  int dividedPrice;
+  double dividedPrice;
+  double totalPrice;
+  TextEditingController _totalPeopleCon;
 
   _TrackingWidgetState() : super(TrackingController()) {
     _con = controller;
-    dividedPrice = 0;
+    _totalPeopleCon = TextEditingController();
   }
 
   @override
   void initState() {
     _con.listenForOrder(orderId: widget.routeArgument.id);
+    dividedPrice = 0.0;
+    totalPrice = 0.0;
     super.initState();
   }
 
@@ -96,7 +102,7 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
                       ),
                     ),
                     showCalc ? Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: EdgeInsets.symmetric(horizontal: 12),
                       child: Column(
 
                         children: <Widget>[
@@ -110,19 +116,24 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
                                 )
                               )
                             ),
+                            controller: _totalPeopleCon,
                             keyboardType: TextInputType.number,
                           ),
+                          SizedBox(height: 12,),
                           MaterialButton(
                             color: Theme.of(context).accentColor,
                             textColor: Colors.white,
                             onPressed: () {
-                              setState(() {showCalc = false;});
+                              setState(() {
+                                _con.order.foodOrders.forEach((element) {totalPrice += element.price;});
+                                dividedPrice = totalPrice / double.parse(_totalPeopleCon.text);
+                                showCalc = false;});
                             },
                             child: Text('Calculate'),
                           )
                         ],
                       ),
-                    ) : Text('Per Person $dividedPrice', textScaleFactor: 2,)
+                    ) : Text('Per Person $dividedPrice Yen', textScaleFactor: 2,)
 //                    Container(
 //                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
 //                      decoration: BoxDecoration(
