@@ -44,10 +44,11 @@ Future<Stream<Food>> getFood(String foodId) async {
 }
 
 Future<Stream<Food>> getFoodsByCategory(categoryId) async {
-  User _user = await getCurrentUser();
-  final String _apiToken = 'api_token=${_user.apiToken}&';
+  int restaurantId = 2;
+  int catId = int.parse(categoryId);
   final String url =
-      '${GlobalConfiguration().getString('api_base_url')}foods?${_apiToken}with=restaurant&search=category_id:$categoryId&searchFields=category_id:=';
+      '${GlobalConfiguration().getString('api_base_url')}food-by-category/$restaurantId/$catId';
+  print(url);
 
   final client = new http.Client();
   final streamedRest = await client.send(http.Request('get', Uri.parse(url)));

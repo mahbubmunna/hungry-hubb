@@ -17,17 +17,17 @@ class Restaurant {
   Restaurant();
 
   Restaurant.fromJSON(Map<String, dynamic> jsonMap)
-      : id = jsonMap['id'].toString(),
-        name = jsonMap['name'],
+      : id = jsonMap['id'].toString()??"",
+        name = jsonMap['name']??"",
         image = jsonMap['media'] != null ? Media.fromJSON(jsonMap['media'][0]) : null,
         rate = jsonMap['rate'] ?? '0',
-        address = jsonMap['address'],
-        description = jsonMap['description'],
-        phone = jsonMap['phone'],
-        mobile = jsonMap['mobile'],
-        information = jsonMap['information'],
-        latitude = jsonMap['latitude'],
-        longitude = jsonMap['longitude'],
+        address = jsonMap['table'].toString()??"",
+        description = jsonMap['description']??"",
+        phone = jsonMap['mobile_no']??"",
+        mobile = jsonMap['mobile_no']??"",
+        information = jsonMap['information']??"",
+        latitude = jsonMap['latitude']??"",
+        longitude = jsonMap['longitude']??"",
         distance = jsonMap['distance'] != null ? double.parse(jsonMap['distance'].toString()) : 0.0;
 
   Map<String, dynamic> toMap() {

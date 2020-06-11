@@ -17,9 +17,9 @@ class HomeController extends ControllerMVC {
 
   HomeController() {
     listenForCategories();
-    listenForTopRestaurants();
-    listenForRecentReviews();
-    listenForTrendingFoods();
+    //listenForTopRestaurants();
+    //listenForRecentReviews();
+    //listenForTrendingFoods();
   }
 
   void listenForCategories() async {

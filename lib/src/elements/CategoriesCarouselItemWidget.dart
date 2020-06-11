@@ -21,7 +21,7 @@ class CategoriesCarouselItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Hero(
-            tag: category.id,
+            tag: UniqueKey().toString(),
             child: Container(
               margin: EdgeInsets.only(left: this.marginLeft, right: 20),
               width: 300,

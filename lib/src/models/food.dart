@@ -24,17 +24,20 @@ class Food {
   Food();
 
   Food.fromJSON(Map<String, dynamic> jsonMap) {
-    id = jsonMap['id'].toString();
-    name = jsonMap['name'];
-    price = jsonMap['price'].toDouble();
+    print('munna');
+    id = jsonMap['id'].toString() ?? "";
+    print('id $id');
+    name = jsonMap['name'] ?? "";
+    print('name: $name');
+    price = jsonMap['price'].toDouble() ?? 0.0;
     discountPrice = jsonMap['discount_price'] != null ? jsonMap['discount_price'].toDouble() : null;
-    description = jsonMap['description'];
-    ingredients = jsonMap['ingredients'];
-    weight = jsonMap['weight'].toString();
+    description = jsonMap['description'] ?? "";
+    ingredients = jsonMap['ingredients'] ?? "";
+    weight = jsonMap['weight'].toString() ?? "";
     featured = jsonMap['featured'] ?? false;
     restaurant = jsonMap['restaurant'] != null ? Restaurant.fromJSON(jsonMap['restaurant']) : null;
     category = jsonMap['category'] != null ? Category.fromJSON(jsonMap['category']) : null;
-    image = jsonMap['media'] != null ? Media.fromJSON(jsonMap['media'][0]) : null;
+    image = jsonMap['media'] != null ? Media.fromJSON(jsonMap['media'][0]) : "https://picsum.photos/200/300/?blur";
     extras = jsonMap['extras'] != null
         ? List.from(jsonMap['extras']).map((element) => Extra.fromJSON(element)).toList()
         : null;

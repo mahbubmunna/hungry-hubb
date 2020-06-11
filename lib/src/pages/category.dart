@@ -48,10 +48,10 @@ class _CategoryWidgetState extends StateMVC<CategoryWidget> {
           S.of(context).category,
           style: Theme.of(context).textTheme.title.merge(TextStyle(letterSpacing: 0)),
         ),
-        actions: <Widget>[
-          new ShoppingCartButtonWidget(
-              iconColor: Theme.of(context).hintColor, labelColor: Theme.of(context).accentColor),
-        ],
+//        actions: <Widget>[
+//          new ShoppingCartButtonWidget(
+//              iconColor: Theme.of(context).hintColor, labelColor: Theme.of(context).accentColor),
+//        ],
       ),
       body: RefreshIndicator(
         onRefresh: _con.refreshCategory,
@@ -119,7 +119,7 @@ class _CategoryWidgetState extends StateMVC<CategoryWidget> {
                 padding: EdgeInsets.symmetric(vertical: 16),
                 child: FoodsCarouselWidget(
                   foodsList: _con.foods,
-                  heroTag: 'safe'+_con.category.id,
+                  heroTag: UniqueKey().toString(),
                 ))
 //              _con.foods.isEmpty
 //                  ? CircularLoadingWidget(height: 500)
