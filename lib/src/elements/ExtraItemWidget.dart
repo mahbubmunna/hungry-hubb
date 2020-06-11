@@ -80,7 +80,7 @@ class _ExtraItemWidgetState extends State<ExtraItemWidget> with SingleTickerProv
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(60)),
-                  image: DecorationImage(image: NetworkImage(widget.extra.image.thumb), fit: BoxFit.cover),
+                  image: DecorationImage(image: NetworkImage(widget.extra.image), fit: BoxFit.cover),
                 ),
               ),
               Container(

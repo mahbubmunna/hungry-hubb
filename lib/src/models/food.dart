@@ -1,6 +1,5 @@
 import 'package:food_delivery_app/src/models/category.dart';
 import 'package:food_delivery_app/src/models/extra.dart';
-import 'package:food_delivery_app/src/models/media.dart';
 import 'package:food_delivery_app/src/models/nutrition.dart';
 import 'package:food_delivery_app/src/models/restaurant.dart';
 import 'package:food_delivery_app/src/models/review.dart';
@@ -10,7 +9,7 @@ class Food {
   String name;
   double price;
   double discountPrice;
-  Media image;
+  String image;
   String description;
   String ingredients;
   String weight;
@@ -29,7 +28,7 @@ class Food {
     print('id $id');
     name = jsonMap['name'] ?? "";
     print('name: $name');
-    price = jsonMap['price'].toDouble() ?? 0.0;
+    price = jsonMap['price'] ?? 0.0;
     discountPrice = jsonMap['discount_price'] != null ? jsonMap['discount_price'].toDouble() : null;
     description = jsonMap['description'] ?? "";
     ingredients = jsonMap['ingredients'] ?? "";
@@ -37,7 +36,7 @@ class Food {
     featured = jsonMap['featured'] ?? false;
     restaurant = jsonMap['restaurant'] != null ? Restaurant.fromJSON(jsonMap['restaurant']) : null;
     category = jsonMap['category'] != null ? Category.fromJSON(jsonMap['category']) : null;
-    image = jsonMap['media'] != null ? Media.fromJSON(jsonMap['media'][0]) : "https://picsum.photos/200/300/?blur";
+    image = jsonMap['image'] != null ? jsonMap['image'] : "https://picsum.photos/200/300/?blur";
     extras = jsonMap['extras'] != null
         ? List.from(jsonMap['extras']).map((element) => Extra.fromJSON(element)).toList()
         : null;

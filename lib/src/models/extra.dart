@@ -1,10 +1,11 @@
 import 'package:food_delivery_app/src/models/media.dart';
+import 'package:global_configuration/global_configuration.dart';
 
 class Extra {
   String id;
   String name;
   double price;
-  Media image;
+  String image;
   String description;
   bool checked;
 
@@ -16,7 +17,7 @@ class Extra {
         price = jsonMap['price'] != null ? jsonMap['price'].toDouble() : null,
         description = jsonMap['description'],
         checked = false,
-        image = jsonMap['media'] != null ? Media.fromJSON(jsonMap['media'][0]) : null;
+        image = '${GlobalConfiguration().getString('image_base_url')}${jsonMap['media']}' ?? "";
 
   Map toMap() {
     var map = new Map<String, dynamic>();

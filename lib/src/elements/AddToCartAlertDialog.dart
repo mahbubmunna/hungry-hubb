@@ -58,7 +58,7 @@ class AddToCartAlertDialogWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                         image: DecorationImage(
-                            image: NetworkImage(this.newFood?.restaurant?.image?.thumb), fit: BoxFit.cover),
+                            image: NetworkImage(this.newFood?.restaurant?.image), fit: BoxFit.cover),
                       ),
                     ),
                   ),
@@ -119,7 +119,7 @@ class AddToCartAlertDialogWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                         image: DecorationImage(
-                            image: NetworkImage(this.oldFood.restaurant.image.thumb), fit: BoxFit.cover),
+                            image: NetworkImage(this.oldFood.restaurant.image), fit: BoxFit.cover),
                       ),
                     ),
                   ),

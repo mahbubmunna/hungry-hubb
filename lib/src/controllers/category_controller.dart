@@ -41,7 +41,7 @@ class CategoryController extends ControllerMVC {
     }, onError: (a) {
       print(a);
       scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text(S.current.verify_your_internet_connection),
+        content: Text('I am having problem in category'),
       ));
     }, onDone: () {
       if (message != null) {

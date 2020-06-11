@@ -27,7 +27,7 @@ class FavoriteGridItemWidget extends StatelessWidget {
                   tag: heroTag + favorite.food.id,
                   child: Container(
                     decoration: BoxDecoration(
-                      image: DecorationImage(image: NetworkImage(this.favorite.food.image.thumb), fit: BoxFit.cover),
+                      image: DecorationImage(image: NetworkImage(this.favorite.food.image), fit: BoxFit.cover),
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),

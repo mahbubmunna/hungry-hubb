@@ -10,8 +10,9 @@ class Setting {
 
   Setting.fromJSON(Map<String, dynamic> jsonMap) {
     appName = jsonMap['app_name'] ?? '';
-   // defaultTax = double.tryParse(jsonMap['default_tax']) ?? 0.0; //double.parse(jsonMap['default_tax'].toString());
-    defaultCurrency = jsonMap['default_currency'] ?? '';
+    //defaultTax = double.tryParse(jsonMap['default_tax']) ?? 0.0; //double.parse(jsonMap['default_tax'].toString());
+    defaultTax = 0.0; //double.parse(jsonMap['default_tax'].toString());
+    defaultCurrency = '¥' ?? '';
     currencyRight = jsonMap['currency_right'] == null ? false : true;
     payPalEnabled = jsonMap['enable_paypal'] == null ? false : true;
     stripeEnabled = jsonMap['enable_stripe'] == null ? false : true;

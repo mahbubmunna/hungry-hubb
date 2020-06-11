@@ -68,6 +68,8 @@ class FoodController extends ControllerMVC {
       this.loadCart = true;
     });
     var _cart = new Cart();
+    print('food name: ');
+    print(food.name);
     _cart.food = food;
     _cart.extras = food.extras.where((element) => element.checked).toList();
     _cart.quantity = this.quantity;

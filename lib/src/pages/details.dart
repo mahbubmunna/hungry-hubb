@@ -77,7 +77,7 @@ class _DetailsWidgetState extends StateMVC<DetailsWidget> {
                               tag: widget.routeArgument.heroTag + _con.restaurant.id,
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
-                                imageUrl: _con.restaurant.image.url,
+                                imageUrl: _con.restaurant.image,
                                 placeholder: (context, url) => Image.asset(
                                   'assets/img/loading.gif',
                                   fit: BoxFit.cover,

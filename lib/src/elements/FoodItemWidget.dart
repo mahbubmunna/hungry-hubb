@@ -38,7 +38,7 @@ class FoodItemWidget extends StatelessWidget {
                   height: 60,
                   width: 60,
                   fit: BoxFit.cover,
-                  imageUrl: food.image.thumb,
+                  imageUrl: food.image,
                   placeholder: (context, url) => Image.asset(
                     'assets/img/loading.gif',
                     fit: BoxFit.cover,

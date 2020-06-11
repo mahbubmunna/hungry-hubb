@@ -23,7 +23,7 @@ class S implements WidgetsLocalizations {
   String get about => "About";
   String get add => "Add";
   String get add_delivery_address => "Add Delivery Address";
-  String get add_to_cart => "Add to Cart";
+  String get add_to_cart => "Add for Order";
   String get address => "Address";
   String get addresses_refreshed_successfuly => "Addresses refreshed successfuly";
   String get all_menu => "All Menu";
@@ -40,7 +40,7 @@ class S implements WidgetsLocalizations {
   String get cash_on_delivery => "Cash on delivery";
   String get category => "Category";
   String get category_refreshed_successfuly => "Category refreshed successfully";
-  String get checkout => "Place Order";
+  String get checkout => "Checkout";
   String get close => "Close";
   String get confirm_payment => "Confirm Payment";
   String get confirmation => "Confirmation";

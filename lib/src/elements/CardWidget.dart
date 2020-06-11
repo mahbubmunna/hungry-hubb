@@ -34,7 +34,7 @@ class CardWidget extends StatelessWidget {
               child: CachedNetworkImage(
                 height: 150,
                 fit: BoxFit.cover,
-                imageUrl: restaurant.image.url,
+                imageUrl: restaurant.image,
                 placeholder: (context, url) => Image.asset(
                   'assets/img/loading.gif',
                   fit: BoxFit.cover,

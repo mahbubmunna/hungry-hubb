@@ -38,7 +38,7 @@ class GridItemWidget extends StatelessWidget {
                   height: 82,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  imageUrl: restaurant.image.thumb,
+                  imageUrl: restaurant.image,
                   placeholder: (context, url) => Image.asset(
                     'assets/img/loading.gif',
                     fit: BoxFit.cover,

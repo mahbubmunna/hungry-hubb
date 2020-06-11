@@ -29,9 +29,11 @@ Future<Stream<Food>> getTrendingFoods() async {
 
 Future<Stream<Food>> getFood(String foodId) async {
   User _user = await getCurrentUser();
-  final String _apiToken = 'api_token=${_user.apiToken}&';
+  //final String _apiToken = 'api_token=${_user.apiToken}&';
+  int id = int.parse(foodId);
   final String url =
-      '${GlobalConfiguration().getString('api_base_url')}foods/$foodId?${_apiToken}with=nutrition;restaurant;category;extras;foodReviews;foodReviews.user';
+      '${GlobalConfiguration().getString('api_base_url')}food-by-id/$id';
+  print(url);
 
   final client = new http.Client();
   final streamedRest = await client.send(http.Request('get', Uri.parse(url)));

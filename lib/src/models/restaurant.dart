@@ -3,7 +3,7 @@ import 'package:food_delivery_app/src/models/media.dart';
 class Restaurant {
   String id;
   String name;
-  Media image;
+  String image;
   String rate;
   String address;
   String description;
@@ -19,7 +19,7 @@ class Restaurant {
   Restaurant.fromJSON(Map<String, dynamic> jsonMap)
       : id = jsonMap['id'].toString()??"",
         name = jsonMap['name']??"",
-        image = jsonMap['media'] != null ? Media.fromJSON(jsonMap['media'][0]) : null,
+        image = jsonMap['image'] != null ? Media.fromJSON(jsonMap['media'][0]) : "null",
         rate = jsonMap['rate'] ?? '0',
         address = jsonMap['table'].toString()??"",
         description = jsonMap['description']??"",

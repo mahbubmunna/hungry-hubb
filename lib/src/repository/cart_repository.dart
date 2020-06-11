@@ -10,12 +10,15 @@ import 'package:food_delivery_app/src/repository/user_repository.dart' as userRe
 
 Future<Stream<Cart>> getCart() async {
   User _user = userRepo.currentUser;
-  final String _apiToken = 'api_token=${_user.apiToken}&';
+  final String _apiToken = 'Token ${_user.apiToken}';
   final String url =
-      '${GlobalConfiguration().getString('api_base_url')}carts?${_apiToken}with=food;extras&search=user_id:${_user.id}&searchFields=user_id:=';
+      '${GlobalConfiguration().getString('api_base_url')}carts/';
 
   final client = new http.Client();
-  final streamedRest = await client.send(http.Request('get', Uri.parse(url)));
+  http.MultipartRequest request =
+  http.MultipartRequest('get', Uri.parse(url));
+  request.headers['authorization'] = _apiToken;
+  final streamedRest = await client.send(request);
 
   return streamedRest.stream
       .transform(utf8.decoder)
@@ -29,12 +32,15 @@ Future<Stream<Cart>> getCart() async {
 
 Future<Stream<int>> getCartCount() async {
   User _user = userRepo.currentUser;
-  final String _apiToken = 'api_token=${_user.apiToken}&';
+  final String _apiToken = 'Token ${_user.apiToken}';
   final String url =
-      '${GlobalConfiguration().getString('api_base_url')}carts/count?${_apiToken}search=user_id:${_user.id}&searchFields=user_id:=';
+      '${GlobalConfiguration().getString('api_base_url')}cart-count/';
 
   final client = new http.Client();
-  final streamedRest = await client.send(http.Request('get', Uri.parse(url)));
+  http.MultipartRequest request =
+  http.MultipartRequest('get', Uri.parse(url));
+  request.headers['authorization'] = _apiToken;
+  final streamedRest = await client.send(request);
 
   return streamedRest.stream.transform(utf8.decoder).transform(json.decoder).map(
         (data) => Helper.getIntData(data),
@@ -44,21 +50,23 @@ Future<Stream<int>> getCartCount() async {
 Future<Cart> addCart(Cart cart, bool reset) async {
   User _user = userRepo.currentUser;
   Map<String, dynamic> decodedJSON = {};
-  final String _apiToken = 'api_token=${_user.apiToken}';
+  final String _apiToken = 'Token ${_user.apiToken}';
   final String _resetParam = 'reset=${reset ? 1 : 0}';
   cart.userId = _user.id;
-  final String url = '${GlobalConfiguration().getString('api_base_url')}carts?$_apiToken&$_resetParam';
+  final String url = '${GlobalConfiguration().getString('api_base_url')}carts/';
   final client = new http.Client();
   final response = await client.post(
     url,
-    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+    headers: {HttpHeaders.contentTypeHeader: 'application/json', HttpHeaders.authorizationHeader: _apiToken},
     body: json.encode(cart.toMap()),
   );
   try {
     decodedJSON = json.decode(response.body)['data'] as Map<String, dynamic>;
+    //print((response.body.toString()));
   } on FormatException catch (e) {
     print("The provided string is not valid JSON addCart");
   }
+  //Cart testCart = Cart.fromJSON(decodedJSON['cart']);
   return Cart.fromJSON(decodedJSON);
 }
 

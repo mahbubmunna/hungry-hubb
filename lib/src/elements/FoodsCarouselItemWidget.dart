@@ -35,7 +35,7 @@ class FoodsCarouselItemWidget extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     child: CachedNetworkImage(
                       fit: BoxFit.cover,
-                      imageUrl: food.image.thumb,
+                      imageUrl: food.image,
                       placeholder: (context, url) => Image.asset(
                         'assets/img/loading.gif',
                         fit: BoxFit.cover,

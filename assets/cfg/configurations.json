@@ -1,5 +1,6 @@
 {
   "base_url": "http://192.168.1.101:8000/",
+  "image_base_url": "http://192.168.1.101:8000",
   "api_base_url": "http://192.168.1.101:8000/api/",
   "google_maps_key" : "AIzaSyAT07iMlfZ9bJt1gmGj9KhJDLFY8srI6dA",
   "api_key": "ircXdKCr9bCW6ct2gk68NhEE1B4yaldLzFJUnhHgmzMCFyHA4ZTKOKe7gSc7"
