@@ -7,6 +7,7 @@ import 'package:food_delivery_app/src/pages/cart.dart';
 import 'package:food_delivery_app/src/pages/favorites.dart';
 import 'package:food_delivery_app/src/pages/history.dart';
 import 'package:food_delivery_app/src/pages/home.dart';
+import 'package:food_delivery_app/src/pages/order_confirmation.dart';
 import 'package:food_delivery_app/src/pages/orders.dart';
 import 'package:food_delivery_app/src/pages/pay.dart';
 
@@ -53,16 +54,19 @@ class _PagesTestWidgetState extends State<PagesTestWidget> {
           widget.currentPage = HomeWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
         case 1:
-          widget.currentPage = FavoritesWidget(parentScaffoldKey: widget.scaffoldKey);
+          //widget.currentPage = FavoritesWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = SuccessfulOrder();
           break;
         case 2:
-          widget.currentPage = CallStaff(parentScaffoldKey: widget.scaffoldKey);
+          //widget.currentPage = CallStaff(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = SuccessfulOrder();
           break;
         case 3:
           widget.currentPage = CartWidget();
           break;
         case 4:
-          widget.currentPage = HistoryWidget(parentScaffoldKey: widget.scaffoldKey);
+          //widget.currentPage = HistoryWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = SuccessfulOrder();
           break;
         case 5:
           widget.currentPage = OrdersWidget(parentScaffoldKey: widget.scaffoldKey);

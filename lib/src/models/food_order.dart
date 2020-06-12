@@ -7,7 +7,7 @@ class FoodOrder {
   double quantity;
   List<Extra> extras;
   Food food;
-  DateTime dateTime;
+  DateTime dateTime = DateTime.now();
   FoodOrder();
 
   FoodOrder.fromJSON(Map<String, dynamic> jsonMap) {
@@ -15,10 +15,10 @@ class FoodOrder {
     price = jsonMap['price'] != null ? jsonMap['price'].toDouble() : 0.0;
     quantity = jsonMap['quantity'] != null ? jsonMap['quantity'].toDouble() : 0.0;
     food = jsonMap['food'] != null ? Food.fromJSON(jsonMap['food']) : [];
-    dateTime = DateTime.parse(jsonMap['updated_at']);
+//    dateTime = jsonMap['datetime'] != null ? DateTime.parse(jsonMap['datetime']) : DateTime.now();
     extras = jsonMap['extras'] != null
         ? List.from(jsonMap['extras']).map((element) => Extra.fromJSON(element)).toList()
-        : null;
+        : [];
   }
 
   Map toMap() {

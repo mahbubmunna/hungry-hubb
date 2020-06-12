@@ -9,7 +9,13 @@ import 'package:food_delivery_app/src/repository/order_repository.dart';
 
 class TrackingController extends ControllerMVC {
   Order order;
-  List<OrderStatus> orderStatus = <OrderStatus>[];
+  List<OrderStatus> orderStatus = <OrderStatus>[
+    OrderStatus(1.toString(), 'Received'),
+    OrderStatus(2.toString(), 'In Kitchen'),
+    OrderStatus(3.toString(), 'Ready'),
+    OrderStatus(4.toString(), 'In Waiter Hand'),
+    OrderStatus(5.toString(), 'Delivered'),
+  ];
   GlobalKey<ScaffoldState> scaffoldKey;
 
   TrackingController() {
@@ -28,7 +34,7 @@ class TrackingController extends ControllerMVC {
         content: Text(S.current.verify_your_internet_connection),
       ));
     }, onDone: () {
-      listenForOrderStatus();
+      //listenForOrderStatus();
       if (message != null) {
         scaffoldKey.currentState.showSnackBar(SnackBar(
           content: Text(message),

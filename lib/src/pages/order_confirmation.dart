@@ -12,7 +12,7 @@ class SuccessfulOrder extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Icon(Icons.check_circle_outline, size: 100, color: Theme.of(context).accentColor,),
-          Center(child: Text('Thank you, your order placed successfully', textScaleFactor: 2, textAlign: TextAlign.center,))
+          Center(child: Text('Coming Soon', textScaleFactor: 2, textAlign: TextAlign.center,))
         ],
       ),
     );

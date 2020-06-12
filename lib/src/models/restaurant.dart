@@ -19,7 +19,7 @@ class Restaurant {
   Restaurant.fromJSON(Map<String, dynamic> jsonMap)
       : id = jsonMap['id'].toString()??"",
         name = jsonMap['name']??"",
-        image = jsonMap['image'] != null ? Media.fromJSON(jsonMap['media'][0]) : "null",
+        image = jsonMap['image'] != null ? jsonMap['image'] : "",
         rate = jsonMap['rate'] ?? '0',
         address = jsonMap['table'].toString()??"",
         description = jsonMap['description']??"",

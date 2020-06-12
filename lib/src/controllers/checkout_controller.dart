@@ -65,12 +65,14 @@ class CheckoutController extends ControllerMVC {
     Order _order = new Order();
     _order.foodOrders = new List<FoodOrder>();
     _order.tax = setting.defaultTax;
-    OrderStatus _orderStatus = new OrderStatus();
+    OrderStatus _orderStatus = new OrderStatus(1.toString(), 'Received');
     _orderStatus.id = '1'; // TODO default order status Id
     _order.orderStatus = _orderStatus;
-    _order.deliveryAddress = userRepo.deliveryAddress;
+    _order.restaurantId = '2';
+    _order.table = 1;
     carts.forEach((_cart) {
       FoodOrder _foodOrder = new FoodOrder();
+      _foodOrder.id = _cart.food.id;
       _foodOrder.quantity = _cart.quantity;
       _foodOrder.price = _cart.food.price;
       _foodOrder.food = _cart.food;

@@ -72,13 +72,13 @@ Future<Cart> addCart(Cart cart, bool reset) async {
 
 Future<Cart> updateCart(Cart cart) async {
   User _user = userRepo.currentUser;
-  final String _apiToken = 'api_token=${_user.apiToken}';
+  final String _apiToken = 'Token ${_user.apiToken}';
   cart.userId = _user.id;
-  final String url = '${GlobalConfiguration().getString('api_base_url')}carts/${cart.id}?$_apiToken';
+  final String url = '${GlobalConfiguration().getString('api_base_url')}update-cart/${cart.id}';
   final client = new http.Client();
   final response = await client.put(
     url,
-    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+    headers: {HttpHeaders.contentTypeHeader: 'application/json', HttpHeaders.authorizationHeader: _apiToken},
     body: json.encode(cart.toMap()),
   );
   return Cart.fromJSON(json.decode(response.body)['data']);
@@ -87,11 +87,11 @@ Future<Cart> updateCart(Cart cart) async {
 Future<Cart> removeCart(Cart cart) async {
   User _user = userRepo.currentUser;
   final String _apiToken = 'api_token=${_user.apiToken}';
-  final String url = '${GlobalConfiguration().getString('api_base_url')}carts/${cart.id}?$_apiToken';
+  final String url = '${GlobalConfiguration().getString('api_base_url')}carts/${cart.id}';
   final client = new http.Client();
   final response = await client.delete(
     url,
-    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+    headers: {HttpHeaders.contentTypeHeader: 'application/json', HttpHeaders.authorizationHeader: _apiToken},
   );
   return Cart.fromJSON(json.decode(response.body)['data']);
 }
