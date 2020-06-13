@@ -19,7 +19,7 @@ class UserController extends ControllerMVC {
     _firebaseMessaging = FirebaseMessaging();
     _firebaseMessaging.getToken().then((String _deviceToken) {
       print(_deviceToken);
-      user.deviceToken = _deviceToken;
+      user.deviceToken = '123456';
     });
   }
 

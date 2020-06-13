@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/pages/order_confirmation.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
@@ -97,37 +98,50 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
           ),
         ],
       ),
-      body: RefreshIndicator(
-        onRefresh: _con.refreshHome,
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SearchBarWidget(),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          food(),
+          drink(),
+          dessert(),
+          recommended()
+
+        ],
+      )
+    );
+  }
+
+  food() {return RefreshIndicator(
+    onRefresh: _con.refreshHome,
+    child: SingleChildScrollView(
+      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SearchBarWidget(),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: ListTile(
+              dense: true,
+              contentPadding: EdgeInsets.symmetric(vertical: 0),
+              leading: Icon(
+                Icons.category,
+                color: Theme.of(context).hintColor,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: ListTile(
-                  dense: true,
-                  contentPadding: EdgeInsets.symmetric(vertical: 0),
-                  leading: Icon(
-                    Icons.category,
-                    color: Theme.of(context).hintColor,
-                  ),
-                  title: Text(
-                    S.of(context).food_categories,
-                    style: Theme.of(context).textTheme.display1,
-                  ),
-                ),
+              title: Text(
+                S.of(context).food_categories,
+                style: Theme.of(context).textTheme.display1,
               ),
-              CategoriesCarouselWidget(
-                categories: _con.categories,
-              ),
+            ),
+          ),
+          CategoriesCarouselWidget(
+            categories: _con.categories,
+          ),
 
 //              Padding(
 //                padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
@@ -224,10 +238,11 @@ class _HomeWidgetState extends StateMVC<HomeWidget>
 //                padding: const EdgeInsets.symmetric(horizontal: 20),
 //                child: ReviewsListWidget(reviewsList: _con.recentReviews),
 //              ),
-            ],
-          ),
-        ),
+        ],
       ),
-    );
-  }
+    ),
+  );}
+  drink() {return SuccessfulOrder();}
+  dessert() {return SuccessfulOrder();}
+  recommended() {return SuccessfulOrder();}
 }

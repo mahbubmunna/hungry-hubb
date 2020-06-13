@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 Future<Stream<Category>> getCategories() async {
   User _user = await getCurrentUser();
   final String _apiToken = 'api_token=${_user.apiToken}&';
-  int restaurantId = 2;
+  int restaurantId = 3;
   String categoryName = "Food";
   final String url = '${GlobalConfiguration().getString('api_base_url')}$restaurantId/categories?category_name=$categoryName';
 

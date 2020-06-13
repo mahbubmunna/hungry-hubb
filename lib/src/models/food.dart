@@ -1,8 +1,10 @@
+import 'package:food_delivery_app/src/helpers/helper.dart';
 import 'package:food_delivery_app/src/models/category.dart';
 import 'package:food_delivery_app/src/models/extra.dart';
 import 'package:food_delivery_app/src/models/nutrition.dart';
 import 'package:food_delivery_app/src/models/restaurant.dart';
 import 'package:food_delivery_app/src/models/review.dart';
+import 'package:global_configuration/global_configuration.dart';
 
 class Food {
   String id;
@@ -36,7 +38,7 @@ class Food {
     featured = jsonMap['featured'] ?? false;
     restaurant = jsonMap['restaurant'] != null ? Restaurant.fromJSON(jsonMap['restaurant']) : null;
     category = jsonMap['category'] != null ? Category.fromJSON(jsonMap['category']) : null;
-    image = jsonMap['image'] != null ? jsonMap['image'] : "https://picsum.photos/200/300/?blur";
+    image = jsonMap['image'] != null ? GlobalConfiguration().getString('image_base_url')+jsonMap['image'] : "https://picsum.photos/200/300/?blur";
     extras = jsonMap['extras'] != null
         ? List.from(jsonMap['extras']).map((element) => Extra.fromJSON(element)).toList()
         : null;

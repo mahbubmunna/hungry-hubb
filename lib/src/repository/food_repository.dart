@@ -46,7 +46,7 @@ Future<Stream<Food>> getFood(String foodId) async {
 }
 
 Future<Stream<Food>> getFoodsByCategory(categoryId) async {
-  int restaurantId = 2;
+  int restaurantId = 3;
   int catId = int.parse(categoryId);
   final String url =
       '${GlobalConfiguration().getString('api_base_url')}food-by-category/$restaurantId/$catId';

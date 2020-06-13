@@ -5,6 +5,7 @@ import 'package:food_delivery_app/src/helpers/helper.dart';
 import 'package:food_delivery_app/src/models/address.dart';
 import 'package:food_delivery_app/src/models/credit_card.dart';
 import 'package:food_delivery_app/src/models/user.dart';
+import 'package:food_delivery_app/src/pages/splash_screen.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart' as userRepo;
 import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
@@ -29,7 +30,7 @@ Future<User> login(User user) async {
 }
 
 Future<User> register(User user) async {
-  final String url = '${GlobalConfiguration().getString('api_base_url')}register';
+  final String url = '${GlobalConfiguration().getString('api_base_url')}registration';
   final client = new http.Client();
   final response = await client.post(
     url,
@@ -82,9 +83,30 @@ Future<void> setCreditCard(CreditCard creditCard) async {
 Future<User> getCurrentUser() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 //  prefs.clear();
+//  final String registrationUrl = '${GlobalConfiguration().getString('api_base_url')}registration';
+//  User user = User();
+//  user.deviceId = deviceId;
+//  final client = new http.Client();
+//  final response = await client.post(
+//    registrationUrl,
+//    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+//    body: json.encode(user.toMap()),
+//  );
+//  if (response.statusCode == 200) {
+//    print(json.decode(response.body)['data']);
+//  }
+//
+//  final String loginUrl = '${GlobalConfiguration().getString('api_base_url')}login';
+//  final loginClient = new http.Client();
+//  final loginResponse = await client.get(
+//    loginUrl,
+//    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+//  );
+//  if (response.statusCode == 200) {
+//    print(json.decode(response.body)['data']);
+//  }
   if (!prefs.containsKey('current_user')) {
-    //await prefs.setString('current_user', '{"id":28,"name":"Mahbub Munnna","email":"mahbub@gmail.com","api_token":"4MKsFSQfBND0PFL6yEskbtBegMqQA9P597y2Wu0FYAQ6lmTK2i03OPeWX0xm","created_at":"2020-02-16 12:18:28","updated_at":"2020-05-13 23:36:44","braintree_id":null,"paypal_email":null,"stripe_id":null,"card_brand":null,"card_last_four":null,"trial_ends_at":null,"device_token":"fqc0SrGK38M:APA91bHjdedlNXRZoYWsEnfGYmvHzqW0I8s7TUMbEaHEaU8vUdrLIIxvXc-NBR1hLB6aHanMz2v5lkJsi31vVN-p3CEgedB7slAe5BQTzmuJk6is5Ds-K9L9f3DZHFbT9E8IJZE1x7Ju","custom_fields":[],"has_media":true,"media":[{"id":157,"name":"api","created_at":"2020-02-16 12:18:29","updated_at":"2020-02-16 12:18:29","url":"https://smartfood.aapbd.com/storage/app/public/157/api.png","thumb":"https://smartfood.aapbd.com/storage/app/public/157/conversions/api-thumb.jpg","icon":"https://smartfood.aapbd.com/storage/app/public/157/conversions/api-icon.jpg","formated_size":"817 B"}]} ');
-    await prefs.setString('current_user', '{"id":2, "api_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiIxMjM0NTYiLCJleHAiOjE1OTI0MTMzNDMsInRva2VuX3R5cGUiOiJ0b2tlbiJ9.HRiFsynp0fIhI51lNS8T9W8MlKEkO7oS6PFjFAHA3ao","device_token":"fqc0SrGK38M:APA91bHjdedlNXRZoYWsEnfGYmvHzqW0I8s7TUMbEaHEaU8vUdrLIIxvXc-NBR1hLB6aHanMz2v5lkJsi31vVN-p3CEgedB7slAe5BQTzmuJk6is5Ds-K9L9f3DZHFbT9E8IJZE1x7Ju", "device_id": "123456"}');
+    await prefs.setString('current_user', '{"id":2, "api_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiIxMjM0NTYiLCJleHAiOjE1OTI2Njc5OTcsInRva2VuX3R5cGUiOiJ0b2tlbiJ9.HFdMw6clTO28txQ0gdOjILAn3bYSGE51HNASIlSO7jo","device_token":"fqc0SrGK38M:APA91bHjdedlNXRZoYWsEnfGYmvHzqW0I8s7TUMbEaHEaU8vUdrLIIxvXc-NBR1hLB6aHanMz2v5lkJsi31vVN-p3CEgedB7slAe5BQTzmuJk6is5Ds-K9L9f3DZHFbT9E8IJZE1x7Ju", "device_id": "123456"}');
   }
   print(prefs.getString('current_user'));
   if (prefs.containsKey('current_user')) {

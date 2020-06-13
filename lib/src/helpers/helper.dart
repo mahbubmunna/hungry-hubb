@@ -9,6 +9,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:food_delivery_app/src/models/food_order.dart';
 import 'package:food_delivery_app/src/models/setting.dart';
 import 'package:food_delivery_app/src/repository/settings_repository.dart';
+import 'package:global_configuration/global_configuration.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
@@ -204,3 +205,5 @@ class Helper {
     return result;
   }
 }
+
+var imageBaseUrl = GlobalConfiguration().getString('image_base_url');
