@@ -30,7 +30,7 @@ class CategoriesCarouselItemWidget extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(5)), color: Theme.of(context).accentColor),
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: SvgPicture.network(
+                child: Image.network(
                   category.image,
                   color: Theme.of(context).scaffoldBackgroundColor,
                 ),
