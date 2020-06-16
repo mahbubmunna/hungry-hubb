@@ -32,6 +32,7 @@ class S implements WidgetsLocalizations {
   String get application_preferences => "Application Preferences";
   String get cancel => "Cancel";
   String get order => "Order";
+  String get cart => "Cart";
   String get call_staff => "Call Staff";
   String get call_staff_detail => 'Please Press the button below to call stuff';
   String get momos_cafe => 'Momo\'s Cafe & Resturant';
