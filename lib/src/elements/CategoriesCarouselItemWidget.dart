@@ -32,7 +32,7 @@ class CategoriesCarouselItemWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: Image.network(
                   category.image,
-                  color: Theme.of(context).scaffoldBackgroundColor,
+                  //color: Theme.of(context).scaffoldBackgroundColor,
                 ),
               ),
             ),
