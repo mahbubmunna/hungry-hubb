@@ -106,7 +106,8 @@ Future<User> getCurrentUser() async {
 //    print(json.decode(response.body)['data']);
 //  }
   if (!prefs.containsKey('current_user')) {
-    await prefs.setString('current_user', '{"id":2, "api_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiIxMjM0NTYiLCJleHAiOjE1OTI2Njc5OTcsInRva2VuX3R5cGUiOiJ0b2tlbiJ9.HFdMw6clTO28txQ0gdOjILAn3bYSGE51HNASIlSO7jo","device_token":"fqc0SrGK38M:APA91bHjdedlNXRZoYWsEnfGYmvHzqW0I8s7TUMbEaHEaU8vUdrLIIxvXc-NBR1hLB6aHanMz2v5lkJsi31vVN-p3CEgedB7slAe5BQTzmuJk6is5Ds-K9L9f3DZHFbT9E8IJZE1x7Ju", "device_id": "123456"}');
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiIxMjM0NTYiLCJleHAiOjE1OTM1MjIyOTgsInRva2VuX3R5cGUiOiJ0b2tlbiJ9.aj-7Ml6c7C20IkZ0NNZwOCfwfNjYjTdGrZaD56LNYbg";
+    await prefs.setString('current_user', '{"id":2, "api_token":"$token","device_token":"$token", "device_id": "123456"}');
   }
   print(prefs.getString('current_user'));
   if (prefs.containsKey('current_user')) {

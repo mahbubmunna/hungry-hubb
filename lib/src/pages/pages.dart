@@ -1,4 +1,6 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/elements/DrawerWidget.dart';
 import 'package:food_delivery_app/src/models/route_argument.dart';
@@ -78,7 +80,7 @@ class _PagesTestWidgetState extends State<PagesTestWidget> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false,
+      onWillPop: () async => showAlertDialog(context),
       child: Scaffold(
         key: widget.scaffoldKey,
         endDrawer: DrawerWidget(),
@@ -143,6 +145,37 @@ class _PagesTestWidgetState extends State<PagesTestWidget> {
           ],
         ),
       ),
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed:  () {Navigator.of(context).pop();},
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Exit"),
+      onPressed:  () {SystemChannels.platform.invokeMethod('SystemNavigator.pop');},
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Exit"),
+      content: Text("Sure to exit?"),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

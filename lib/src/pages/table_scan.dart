@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery_app/src/models/route_argument.dart';
 
-
+var barcode;
 class TableScan extends StatefulWidget {
   @override
   _TableScanState createState() => _TableScanState();
 }
 
 class _TableScanState extends State<TableScan> {
-  var barcode;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,6 @@ class _TableScanState extends State<TableScan> {
             shape: StadiumBorder(),
             onPressed: () async{
               _startScan();
-              Navigator.of(context).pushNamedAndRemoveUntil('/Pages', ModalRoute.withName('/Splash'), arguments: RouteArgument(param: 0));
             },
             child: Text('Scan Table', textScaleFactor: 1.5, ),
           ),
@@ -37,28 +35,42 @@ class _TableScanState extends State<TableScan> {
 
   _startScan() async {
     try {
-      var barcode = await BarcodeScanner.scan();
-      setState(() {
-        this.barcode = barcode;
-        AwesomeDialog(
-            context: context,
-            dialogType: DialogType.SUCCES,
-            body: Text(barcode.toString()))
-            .show();
-      });
+      barcode = await BarcodeScanner.scan();
+      AwesomeDialog(
+          context: context,
+          dialogType: DialogType.SUCCES,
+          btnOk: MaterialButton(
+            color: Theme.of(context).accentColor,
+            shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(22.0) ),
+            textColor: Colors.white,
+            onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil('/Pages', ModalRoute.withName('/Splash'), arguments: RouteArgument(param: 0)),
+            child: Text('Scan Completed, Now order'),
+          ),
+          body: Text(barcode.toString()))
+          .show();
+
+//      setState(() {
+//        this.barcode = barcode;
+//        print(barcode);
+//        AwesomeDialog(
+//            context: context,
+//            dialogType: DialogType.SUCCES,
+//            body: Text(barcode.toString()))
+//            .show();
+//      });
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
-          this.barcode = 'The user did not grant the camera permission!';
+          barcode = 'The user did not grant the camera permission!';
         });
       } else {
-        setState(() => this.barcode = 'Unknown error: $e');
+        setState(() => barcode = 'Unknown error: $e');
       }
     } on FormatException {
-      setState(() => this.barcode =
+      setState(() => barcode =
       'null (User returned using the "back"-button before scanning anything. Result)');
     } catch (e) {
-      setState(() => this.barcode = 'Unknown error: $e');
+      setState(() => barcode = 'Unknown error: $e');
     }
   }
 }
