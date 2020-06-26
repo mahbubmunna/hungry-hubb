@@ -9,7 +9,7 @@ import 'package:food_delivery_app/src/elements/OrderItemWidget.dart';
 import 'package:food_delivery_app/src/elements/ShoppingCartButtonWidget.dart';
 import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-
+var fcmToken;
 class TrackingWidget extends StatefulWidget {
   RouteArgument routeArgument;
 
@@ -38,6 +38,13 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
     totalPrice = 0.0;
 
     final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+    _firebaseMessaging.getToken().then((String _deviceToken) {
+      print('device token' + _deviceToken);
+      fcmToken = _deviceToken;
+      //user.deviceToken = '123456';
+    });
+
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         showDialog(

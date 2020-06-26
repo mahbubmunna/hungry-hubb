@@ -2,9 +2,12 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery_app/src/models/restaurant_table.dart';
 import 'package:food_delivery_app/src/models/route_argument.dart';
+import 'dart:convert';
 
 var barcode;
+RestaurantTable restaurantTable;
 class TableScan extends StatefulWidget {
   @override
   _TableScanState createState() => _TableScanState();
@@ -36,6 +39,12 @@ class _TableScanState extends State<TableScan> {
   _startScan() async {
     try {
       barcode = await BarcodeScanner.scan();
+      
+      restaurantTable = RestaurantTable.fromJson(json.decode(barcode));
+      print('restaurant and table id: ');
+      print(restaurantTable.restaurantId);
+      print(restaurantTable.tableId);
+
       AwesomeDialog(
           context: context,
           dialogType: DialogType.SUCCES,

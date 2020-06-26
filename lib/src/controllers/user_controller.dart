@@ -5,7 +5,7 @@ import 'package:food_delivery_app/src/models/route_argument.dart';
 import 'package:food_delivery_app/src/models/user.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart' as repository;
 import 'package:mvc_pattern/mvc_pattern.dart';
-
+//var fcmToken;
 class UserController extends ControllerMVC {
   User user = new User();
   bool hidePassword = true;
@@ -18,7 +18,8 @@ class UserController extends ControllerMVC {
     this.scaffoldKey = new GlobalKey<ScaffoldState>();
     _firebaseMessaging = FirebaseMessaging();
     _firebaseMessaging.getToken().then((String _deviceToken) {
-      print(_deviceToken);
+      print('device token' + _deviceToken);
+      //fcmToken = _deviceToken;
       user.deviceToken = '123456';
     });
   }

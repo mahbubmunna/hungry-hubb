@@ -61,19 +61,20 @@ class TrackingController extends ControllerMVC {
           _orderStatus.status,
           style: Theme.of(context).textTheme.subhead,
         ),
-        subtitle: order.orderStatus.id == _orderStatus.id
-            ? Text(
-                '${DateFormat('HH:mm | yyyy-MM-dd').format(order.dateTime)}',
-                style: Theme.of(context).textTheme.caption,
-                overflow: TextOverflow.ellipsis,
-              )
-            : SizedBox(height: 0),
+//        subtitle: order.orderStatus.id == _orderStatus.id
+//            ? Text(
+//                '${DateFormat('HH:mm | yyyy-MM-dd').format(order.dateTime)}',
+//                style: Theme.of(context).textTheme.caption,
+//                overflow: TextOverflow.ellipsis,
+//              )
+//            : SizedBox(height: 0),
         content: SizedBox(
             width: double.infinity,
             child: Text(
               '${Helper.skipHtml(order.hint)}',
             )),
-        isActive: (int.tryParse(order.orderStatus.id)) >= (int.tryParse(_orderStatus.id)),
+        isActive: true,
+  //        (int.tryParse(order.orderStatus.id)) >= (int.tryParse(_orderStatus.id))
       ));
     });
     return _orderStatusSteps;
