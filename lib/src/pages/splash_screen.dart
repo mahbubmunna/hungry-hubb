@@ -35,7 +35,7 @@ class SplashScreenState extends StateMVC<SplashScreen> {
     SchedulerBinding.instance.addPostFrameCallback((_) async{
       if (currentUser.apiToken == null) {
 
-        Navigator.of(context).pushReplacementNamed('/Login');
+        Navigator.of(context).pushReplacementNamed('/Scan');
       } else {
         //Navigator.of(context).pushReplacementNamed('/Pages', arguments: RouteArgument(param: 0));
         Navigator.of(context).pushReplacementNamed('/Scan');
@@ -43,25 +43,10 @@ class SplashScreenState extends StateMVC<SplashScreen> {
     });
   }
 
-  _initDeviceId(BuildContext context) async {
-    deviceId = await _getId(context);
-  }
 
-  Future<String> _getId(BuildContext context) async {
-    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    if (Theme.of(context).platform == TargetPlatform.iOS) {
-      IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
-      return iosDeviceInfo.identifierForVendor; // unique ID on iOS
-    } else {
-      AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
-      return androidDeviceInfo.androidId; // unique ID on Android
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    _initDeviceId(context);
-    print('device id: $deviceId');
 
     return Scaffold(
       key: _con.scaffoldKey,
@@ -102,4 +87,3 @@ class SplashScreenState extends StateMVC<SplashScreen> {
 
 }
 
-String deviceId;

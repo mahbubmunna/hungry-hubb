@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:food_delivery_app/src/helpers/helper.dart';
 import 'package:food_delivery_app/src/models/address.dart';
 import 'package:food_delivery_app/src/models/credit_card.dart';
@@ -10,8 +11,13 @@ import 'package:food_delivery_app/src/repository/user_repository.dart' as userRe
 import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io' show Platform;
+
+import '../../main.dart';
 
 User currentUser = new User();
+User defaultUser = new User();
+Map jsonUser;
 Address deliveryAddress = new Address();
 
 Future<User> login(User user) async {
@@ -82,32 +88,27 @@ Future<void> setCreditCard(CreditCard creditCard) async {
 
 Future<User> getCurrentUser() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-//  prefs.clear();
-//  final String registrationUrl = '${GlobalConfiguration().getString('api_base_url')}registration';
-//  User user = User();
-//  user.deviceId = deviceId;
-//  final client = new http.Client();
-//  final response = await client.post(
-//    registrationUrl,
-//    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
-//    body: json.encode(user.toMap()),
-//  );
-//  if (response.statusCode == 200) {
-//    print(json.decode(response.body)['data']);
-//  }
-//
-//  final String loginUrl = '${GlobalConfiguration().getString('api_base_url')}login';
-//  final loginClient = new http.Client();
-//  final loginResponse = await client.get(
-//    loginUrl,
-//    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
-//  );
-//  if (response.statusCode == 200) {
-//    print(json.decode(response.body)['data']);
-//  }
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  var registrationResponse = await registerUser();
+  var loginResponse = await loginForToken();
+
+  print('register_response: $registrationResponse login_response = $loginResponse');
+  Map registerMap = json.decode(registrationResponse);
+  Map loginMap = json.decode(loginResponse)['data'];
+
+  defaultUser.deviceId = registerMap['device_id'];
+  defaultUser.id = registerMap['id'].toString();
+  defaultUser.apiToken = loginMap['api_token'];
+  defaultUser.deviceToken = await _firebaseMessaging.getToken();
+  print(defaultUser.deviceToken);
+
+  var fcmTokenResponse = registerFcmToken();
+
+
+
   if (!prefs.containsKey('current_user')) {
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiIxMjM0NTYiLCJleHAiOjE1OTM1MjIyOTgsInRva2VuX3R5cGUiOiJ0b2tlbiJ9.aj-7Ml6c7C20IkZ0NNZwOCfwfNjYjTdGrZaD56LNYbg";
-    await prefs.setString('current_user', '{"id":2, "api_token":"$token","device_token":"$token", "device_id": "123456"}');
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiI1NjM4NDMzZGQwNTZmZTgxMTM0NTU2NyIsImV4cCI6MTU5NDI0MjMxOCwidG9rZW5fdHlwZSI6InRva2VuIn0.y3W8IRfea0NJyi_IBrP6QdKPAXPo2S0byUOLyv4DbDw";
+    await prefs.setString('current_user', '{"id":2, "api_token":"$token","device_token":"$token", "device_id": $deviceId}');
   }
   print(prefs.getString('current_user'));
   if (prefs.containsKey('current_user')) {
@@ -115,6 +116,56 @@ Future<User> getCurrentUser() async {
   }
 
   return currentUser;
+}
+
+registerFcmToken() async{
+//  String os = Platform.operatingSystem; //in your code
+//  print(os);
+////  prefs.clear();
+//  final String registrationUrl = '${GlobalConfiguration().getString('api_base_url')}registration/';
+//  final client = new http.Client();
+//  final response = await client.post(
+//    registrationUrl,
+//    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+//    body: json.encode(user.toMap()),
+//  );
+//  if (response.statusCode == 200) {
+//    print(json.decode(response.body));
+//  }
+//  return response.body;
+}
+
+registerUser() async{
+  String os = Platform.operatingSystem; //in your code
+  print(os);
+//  prefs.clear();
+  final String registrationUrl = '${GlobalConfiguration().getString('api_base_url')}registration/';
+  User user = User();
+  user.deviceId = deviceId;
+  user.deviceType = os;
+  final client = new http.Client();
+  final response = await client.post(
+    registrationUrl,
+    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+    body: json.encode(user.toMap()),
+  );
+  if (response.statusCode == 200) {
+    print(json.decode(response.body));
+  }
+  return response.body;
+}
+
+loginForToken() async{
+  final String loginUrl = '${GlobalConfiguration().getString('api_base_url')}login/?device_id=$deviceId';
+  final loginClient = new http.Client();
+  final loginResponse = await loginClient.get(
+    loginUrl,
+    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+  );
+  if (loginResponse.statusCode == 200) {
+    print(json.decode(loginResponse.body));
+  }
+  return loginResponse.body;
 }
 
 Future<CreditCard> getCreditCard() async {

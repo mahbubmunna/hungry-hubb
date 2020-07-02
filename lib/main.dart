@@ -1,3 +1,4 @@
+import 'package:device_info/device_info.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -11,6 +12,7 @@ import 'generated/lib_generated_i18n.dart';
 
 
 FirebaseAnalytics analytics = FirebaseAnalytics();
+String deviceId;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +25,25 @@ class MyApp extends StatelessWidget {
 //  /// Supply 'the Controller' for this application.
 //  MyApp({Key key}) : super(con: Controller(), key: key);
 
+  _initDeviceId(BuildContext context) async {
+    deviceId = await _getId(context);
+  }
+
+  Future<String> _getId(BuildContext context) async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Theme.of(context).platform == TargetPlatform.iOS) {
+      IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+      return iosDeviceInfo.identifierForVendor; // unique ID on iOS
+    } else {
+      AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
+      return androidDeviceInfo.androidId; // unique ID on Android
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _initDeviceId(context);
+    print('device id: $deviceId');
     return DynamicTheme(
         defaultBrightness: Brightness.light,
         data: (brightness) {

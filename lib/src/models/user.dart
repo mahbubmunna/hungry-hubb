@@ -8,6 +8,7 @@ class User {
   String apiToken;
   String deviceToken;
   String deviceId;
+  String deviceType;
   String phone;
   String address;
   String bio;
@@ -23,7 +24,8 @@ class User {
     email = jsonMap['email'] ?? '';
     apiToken = jsonMap['api_token'];
     deviceToken = jsonMap['device_token'];
-    deviceId = jsonMap['device_token'];
+    deviceId = jsonMap['device_id'];
+    deviceType = jsonMap['device_type'];
     try {
       phone = jsonMap['custom_fields']['phone']['view'];
     } catch (e) {
@@ -52,7 +54,8 @@ class User {
     map["password"] = password;
     map["api_token"] = apiToken;
     map["device_token"] = deviceToken;
-    map["device_id"] = deviceToken;
+    map["device_id"] = deviceId;
+    map["device_type"] = deviceType;
     map["phone"] = phone;
     map["address"] = address;
     map["bio"] = bio;
