@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:food_delivery_app/src/helpers/helper.dart';
 import 'package:food_delivery_app/src/models/address.dart';
 import 'package:food_delivery_app/src/models/credit_card.dart';
+import 'package:food_delivery_app/src/models/token.dart';
 import 'package:food_delivery_app/src/models/user.dart';
 import 'package:food_delivery_app/src/pages/splash_screen.dart';
 import 'package:food_delivery_app/src/repository/user_repository.dart' as userRepo;
@@ -100,39 +101,38 @@ Future<User> getCurrentUser() async {
   defaultUser.id = registerMap['id'].toString();
   defaultUser.apiToken = loginMap['api_token'];
   defaultUser.deviceToken = await _firebaseMessaging.getToken();
-  print(defaultUser.deviceToken);
-
-  var fcmTokenResponse = registerFcmToken();
-
+  print('fcm token: [ ' + defaultUser.deviceToken + ' ]');
+  registerFcmToken();
 
 
-  if (!prefs.containsKey('current_user')) {
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VfaWQiOiI1NjM4NDMzZGQwNTZmZTgxMTM0NTU2NyIsImV4cCI6MTU5NDI0MjMxOCwidG9rZW5fdHlwZSI6InRva2VuIn0.y3W8IRfea0NJyi_IBrP6QdKPAXPo2S0byUOLyv4DbDw";
-    await prefs.setString('current_user', '{"id":2, "api_token":"$token","device_token":"$token", "device_id": $deviceId}');
-  }
-  print(prefs.getString('current_user'));
-  if (prefs.containsKey('current_user')) {
-    currentUser = User.fromJSON(json.decode(await prefs.get('current_user')));
-  }
+//  if (!prefs.containsKey('current_user')) {
+//    await prefs.setString('current_user', json.encode(defaultUser.toMap()));
+//  }
+//  print(prefs.getString('current_user'));
+//  if (prefs.containsKey('current_user')) {
+//    currentUser = User.fromJSON(json.decode(await prefs.get('current_user')));
+//  }
 
-  return currentUser;
+  return defaultUser;
 }
 
 registerFcmToken() async{
-//  String os = Platform.operatingSystem; //in your code
-//  print(os);
-////  prefs.clear();
-//  final String registrationUrl = '${GlobalConfiguration().getString('api_base_url')}registration/';
-//  final client = new http.Client();
-//  final response = await client.post(
-//    registrationUrl,
-//    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
-//    body: json.encode(user.toMap()),
-//  );
-//  if (response.statusCode == 200) {
-//    print(json.decode(response.body));
-//  }
-//  return response.body;
+  String os = Platform.operatingSystem; //in your code
+  print(os);
+//  prefs.clear();
+  final String tokenUpdateUrl = '${GlobalConfiguration().getString('api_base_url')}create-or-update-fcm/';
+  final client = new http.Client();
+  Token tokenRequestBody = Token(fcmToken: defaultUser.deviceToken, deviceName: os, customer: defaultUser.id, isCustomer: 'true');
+  final String _apiToken = 'Token ${defaultUser.apiToken}';
+  final response = await client.post(
+    tokenUpdateUrl,
+    headers: {HttpHeaders.contentTypeHeader: 'application/json', HttpHeaders.authorizationHeader: _apiToken},
+    body: json.encode(tokenRequestBody.toJson()),
+  );
+  if (response.statusCode == 206 || response.statusCode == 201) {
+    print(json.decode(response.body));
+  }
+  return response.body;
 }
 
 registerUser() async{

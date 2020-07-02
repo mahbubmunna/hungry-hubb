@@ -52,7 +52,7 @@ class TrackingController extends ControllerMVC {
     }, onError: (a) {}, onDone: () {});
   }
 
-  List<Step> getTrackingSteps(BuildContext context) {
+  List<Step> getTrackingSteps(BuildContext context, String currentState) {
     List<Step> _orderStatusSteps = [];
     this.orderStatus.forEach((OrderStatus _orderStatus) {
       _orderStatusSteps.add(Step(
@@ -73,8 +73,7 @@ class TrackingController extends ControllerMVC {
             child: Text(
               '${Helper.skipHtml(order.hint)}',
             )),
-        isActive: true,
-  //        (int.tryParse(order.orderStatus.id)) >= (int.tryParse(_orderStatus.id))
+        isActive: (int.tryParse(currentState)) >= (int.tryParse(_orderStatus.id))
       ));
     });
     return _orderStatusSteps;

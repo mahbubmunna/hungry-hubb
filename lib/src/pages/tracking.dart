@@ -132,7 +132,7 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
                               {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
                             return SizedBox(height: 0);
                           },
-                          steps: _con.getTrackingSteps(context),
+                          steps: _con.getTrackingSteps(context, '2'),
                           currentStep: int.tryParse(this._con.order.orderStatus.id) - 1,
                         ),
                       ),
