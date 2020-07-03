@@ -38,7 +38,8 @@ class Food {
     featured = jsonMap['featured'] ?? false;
     restaurant = jsonMap['restaurant'] != null ? Restaurant.fromJSON(jsonMap['restaurant']) : null;
     category = jsonMap['category'] != null ? Category.fromJSON(jsonMap['category']) : null;
-    image = jsonMap['image'] != null ? GlobalConfiguration().getString('image_base_url')+jsonMap['image'] : "https://picsum.photos/200/300/?blur";
+    //image = jsonMap['image'] != null ? GlobalConfiguration().getString('image_base_url')+jsonMap['image'] : "https://picsum.photos/200/300/?blur";
+    image = jsonMap['image'] = "http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/256/Steak-icon.png";
     extras = jsonMap['extras'] != null
         ? List.from(jsonMap['extras']).map((element) => Extra.fromJSON(element)).toList()
         : null;

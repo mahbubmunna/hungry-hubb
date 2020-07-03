@@ -52,7 +52,7 @@ class TrackingController extends ControllerMVC {
     }, onError: (a) {}, onDone: () {});
   }
 
-  List<Step> getTrackingSteps(BuildContext context, String currentState) {
+  List<Step> getTrackingSteps(BuildContext context, String currentState, DateTime stateTime) {
     List<Step> _orderStatusSteps = [];
     this.orderStatus.forEach((OrderStatus _orderStatus) {
       _orderStatusSteps.add(Step(
@@ -61,13 +61,13 @@ class TrackingController extends ControllerMVC {
           _orderStatus.status,
           style: Theme.of(context).textTheme.subhead,
         ),
-//        subtitle: order.orderStatus.id == _orderStatus.id
-//            ? Text(
-//                '${DateFormat('HH:mm | yyyy-MM-dd').format(order.dateTime)}',
-//                style: Theme.of(context).textTheme.caption,
-//                overflow: TextOverflow.ellipsis,
-//              )
-//            : SizedBox(height: 0),
+        subtitle: currentState == _orderStatus.id
+            ? Text(
+                '${DateFormat('HH:mm | yyyy-MM-dd').format(stateTime)}',
+                style: Theme.of(context).textTheme.caption,
+                overflow: TextOverflow.ellipsis,
+              )
+            : SizedBox(height: 0),
         content: SizedBox(
             width: double.infinity,
             child: Text(

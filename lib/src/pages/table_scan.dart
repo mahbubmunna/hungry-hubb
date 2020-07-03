@@ -55,7 +55,8 @@ class _TableScanState extends State<TableScan> {
             onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil('/Pages', ModalRoute.withName('/Splash'), arguments: RouteArgument(param: 0)),
             child: Text('Scan Completed, Now order'),
           ),
-          body: Text(barcode.toString()))
+          //body: Text(barcode.toString())
+      )
           .show();
 
 //      setState(() {

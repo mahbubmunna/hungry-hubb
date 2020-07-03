@@ -25,6 +25,7 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
   double dividedPrice;
   double totalPrice;
   String currentState = '1';
+  DateTime stateTime = DateTime.now();
 
   TextEditingController _totalPeopleCon;
 
@@ -48,8 +49,11 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
 
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
-        setState(() {currentState = message['notification']['body'];});
-        print('current step: '+currentState);
+        setState(() {
+          currentState = message['notification']['body'];
+          stateTime = DateTime.parse(message['notification']['title']);
+        });
+ //       print('current step: '+currentState);
 //        showDialog(
 //          context: context,
 //          builder: (context) => AlertDialog(
@@ -135,8 +139,8 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
                               {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
                             return SizedBox(height: 0);
                           },
-                          steps: _con.getTrackingSteps(context, currentState),
-                          currentStep: int.tryParse(this._con.order.orderStatus.id) - 1,
+                          steps: _con.getTrackingSteps(context, currentState, stateTime),
+                          currentStep: int.tryParse(currentState) - 1,
                         ),
                       ),
                     ),
