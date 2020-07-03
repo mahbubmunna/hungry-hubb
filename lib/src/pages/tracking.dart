@@ -24,6 +24,8 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
   bool showCalc = true;
   double dividedPrice;
   double totalPrice;
+  String currentState = '1';
+
   TextEditingController _totalPeopleCon;
 
   _TrackingWidgetState() : super(TrackingController()) {
@@ -38,7 +40,6 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
     totalPrice = 0.0;
 
     final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-
     _firebaseMessaging.getToken().then((String _deviceToken) {
       print('device token' + _deviceToken);
       fcmToken = _deviceToken;
@@ -47,21 +48,23 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
 
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            content: ListTile(
-              title: Text(message['notification']['title']),
-              subtitle: Text(message['notification']['body']),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('Ok'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
-          ),
-        );
+        setState(() {currentState = message['notification']['body'];});
+        print('current step: '+currentState);
+//        showDialog(
+//          context: context,
+//          builder: (context) => AlertDialog(
+//            content: ListTile(
+//              title: Text(message['notification']['title']),
+//              subtitle: Text(message['notification']['body']),
+//            ),
+//            actions: <Widget>[
+//              FlatButton(
+//                child: Text('Ok'),
+//                onPressed: () => Navigator.of(context).pop(),
+//              ),
+//            ],
+//          ),
+//        );
         print("onMessage: $message");
       },
       onLaunch: (Map<String, dynamic> message) async {
@@ -132,7 +135,7 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
                               {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
                             return SizedBox(height: 0);
                           },
-                          steps: _con.getTrackingSteps(context, '2'),
+                          steps: _con.getTrackingSteps(context, currentState),
                           currentStep: int.tryParse(this._con.order.orderStatus.id) - 1,
                         ),
                       ),
