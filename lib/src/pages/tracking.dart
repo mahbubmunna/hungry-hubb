@@ -50,8 +50,8 @@ class _TrackingWidgetState extends StateMVC<TrackingWidget> {
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         setState(() {
-          currentState = message['notification']['title'];
-          stateTime = DateTime.parse(message['notification']['body']);
+          currentState = message['data']['title'];
+          stateTime = DateTime.parse(message['data']['body']);
         });
  //       print('current step: '+currentState);
 //        showDialog(
