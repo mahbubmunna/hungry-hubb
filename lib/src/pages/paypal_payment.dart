@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
+
 import 'package:food_delivery_app/generated/lib_generated_i18n.dart';
 import 'package:food_delivery_app/src/controllers/paypal_controller.dart';
 import 'package:food_delivery_app/src/models/route_argument.dart';

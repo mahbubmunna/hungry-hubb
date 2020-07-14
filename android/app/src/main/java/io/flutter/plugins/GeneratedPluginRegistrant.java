@@ -7,6 +7,7 @@ import io.flutter.plugins.firebaseanalytics.FirebaseAnalyticsPlugin;
 import io.flutter.plugins.firebasemessaging.FirebaseMessagingPlugin;
 import com.sidlatau.flutteremailsender.FlutterEmailSenderPlugin;
 import com.pichillilorenzo.flutter_inappbrowser.InAppBrowserFlutterPlugin;
+import io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin;
 import io.flutter.plugins.googlemaps.GoogleMapsPlugin;
 import com.lyokone.location.LocationPlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
@@ -28,6 +29,7 @@ public final class GeneratedPluginRegistrant {
     FirebaseMessagingPlugin.registerWith(registry.registrarFor("io.flutter.plugins.firebasemessaging.FirebaseMessagingPlugin"));
     FlutterEmailSenderPlugin.registerWith(registry.registrarFor("com.sidlatau.flutteremailsender.FlutterEmailSenderPlugin"));
     InAppBrowserFlutterPlugin.registerWith(registry.registrarFor("com.pichillilorenzo.flutter_inappbrowser.InAppBrowserFlutterPlugin"));
+    FlutterAndroidLifecyclePlugin.registerWith(registry.registrarFor("io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin"));
     GoogleMapsPlugin.registerWith(registry.registrarFor("io.flutter.plugins.googlemaps.GoogleMapsPlugin"));
     LocationPlugin.registerWith(registry.registrarFor("com.lyokone.location.LocationPlugin"));
     PathProviderPlugin.registerWith(registry.registrarFor("io.flutter.plugins.pathprovider.PathProviderPlugin"));

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>487345497435-t3i4ce22kh7nusrdc7i6a27t9tt2ee9i.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.487345497435-t3i4ce22kh7nusrdc7i6a27t9tt2ee9i</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCcjj6P3CzqLw1X8ifGs2hLOkgqn7PU-fY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>487345497435</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>rocks.moonss.momoscafe</string>
+	<key>PROJECT_ID</key>
+	<string>momoscafe-1d20a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>momoscafe-1d20a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:487345497435:ios:e7160f4eb5b6b33533a67e</string>
+	<key>DATABASE_URL</key>
+	<string>https://momoscafe-1d20a.firebaseio.com</string>
+</dict>
+</plist>
